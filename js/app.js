@@ -12,10 +12,11 @@ var twoSum = function() {
     		// console.log(i, i+1);
     		ans.push(i, i+1);
     		// console.log(ans)
+    		break;
     	}
-    	return ans;
     }
+    return ans;
 
 };
 
-twoSum();
+console.log(twoSum());
