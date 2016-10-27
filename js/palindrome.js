@@ -14,9 +14,10 @@ var isPalindrome = function (input) {
         x -- ;
     }
     console.log("result ", result);
+    return result === input;
 };
 
 var text = "car";
 
-isPalindrome(text);
+console.log(isPalindrome(text));
 // console.log(isPalindrome(text));
