@@ -23,6 +23,9 @@ function computeFibonacci(n) {
     console.log(term3);
     console.log(list);
 
+
+    // different way of doing
+
     // for (var i = 2; i < n; i++) {
     //
     //     console.log(i);
