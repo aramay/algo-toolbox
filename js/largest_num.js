@@ -1,24 +1,36 @@
 // what is the largest number that consists of digits 234 => 432
 
-function largestNumber(n) {
-    console.log(n);
+function largestNumber(num) {
+    console.log(num);
 
     // find max
-    var max = n[0];
-    var found = true;
+    var max_array = [];
+//     var max = num[0];
 
-    while(n.length > 0) {
+    n = num.length - 1;
 
-        if (n[i] > max) {
-            max = n[i];
+    while (n > 0) {
+
+        var max = num[0];
+
+        for (var i = 0; i < num.length; i++) {
+            
+            if (num[i] > max) {
+                max = num[i];
+//                 num.splice(i, 1);
+//                 max_array.push(max);
+                num[0] = max;
+            }
         }
+        n --;
     }
 
-    // n.splice()
-    // n.push(max);
+    console.log(max_array);
+
 }
 
 
-var num = [2,3,4];
+// var num = [2,3,4];
+var num = [3,2,4,1];
 
 console.log(largestNumber(num));
