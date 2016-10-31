@@ -1,7 +1,7 @@
 // what is the largest number that consists of digits 234 => 432
 
 function largestNumber(n) {
-    console.log(n);
+    console.log("unsorted array ", n);
 
     // find max
     var max_array = [];
@@ -26,8 +26,6 @@ function largestNumber(n) {
 //     return max;
 }
 
-
-// var num = [2,3,4];
-var num = [3,2,4,1];
+var num = [77 ,99 ,44 ,55 ,22 ,88 ,11 ,0 ,66 ,33];
 
 console.log(largestNumber(num));
