@@ -22,7 +22,7 @@ function largestNumber(n) {
 
     }
 
-        console.log(n);
+        console.log("sorted array ", n);
 //     return max;
 }
 
