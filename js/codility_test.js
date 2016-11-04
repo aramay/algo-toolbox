@@ -1,5 +1,12 @@
 function test1(E, L) {
 
+
+    this.test = function () {
+
+        console.log("test function");
+    } () ;
+
+
     var entranceFee = 2,
         firstFullH = 3,
         firstPartialH = 3,
