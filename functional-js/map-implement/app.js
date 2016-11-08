@@ -54,7 +54,7 @@ var test = function() {
 
 
 	return videoAndTitlePairs;
-}
+};
 
 console.log(test());
 
