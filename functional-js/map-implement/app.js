@@ -32,31 +32,21 @@ var test = function() {
 			"rating": [5.0],
 			"bookmark": [{ id: 432534, time: 65876586 }]
 		}
-	],
-	videoAndTitlePairs = [];
-
+	];
 	// ------------ INSERT CODE HERE! -----------------------------------
-	// Use forEach function to accumulate {id, title} pairs from each video.
-	// Put the results into the videoAndTitlePairs array using the Array's
-	// push() method. Example: videoAndTitlePairs.push(newItem);
+	// Use map function to accumulate {id, title} pairs from each video.
+	console.log("test");
+  return newReleases.map(function(item){
+
+//     console.log(item);
+    return ({id: item.id, title: item.title});
+  }); // finish this expression!
 	// ------------ INSERT CODE HERE! -----------------------------------
-  var pair = {};
 
-  newReleases.forEach(function(video){
-
-    // console.log(video);
-    pair.id = video.id;
-    pair.title = video.title;
-
-    // console.log(pair);
-    videoAndTitlePairs.push(pair);
-  });
-
-
-	return videoAndTitlePairs;
 };
 
-console.log(test());
+// console.log(test());
+test();
 
 Array.prototype.map = function(projectionFunction) {
 	var results = [];

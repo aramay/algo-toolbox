@@ -32,7 +32,7 @@ var test = function() {
 			"rating": [5.0],
 			"bookmark": [{ id: 432534, time: 65876586 }]
 		}
-	],
+	];
 	videoAndTitlePairs = [];
 
 	// ------------ INSERT CODE HERE! -----------------------------------
@@ -54,19 +54,6 @@ var test = function() {
 
 
 	return videoAndTitlePairs;
-}
+};
 
 console.log(test());
-
-Array.prototype.map = function(projectionFunction) {
-	var results = [];
-
-  console.log(this);
-
-	this.forEach(function(itemInArray) {
-		results.push(projectionFunction(itemInArray));
-
-	});
-
-	return results;
-};
