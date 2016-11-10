@@ -4,17 +4,19 @@ function stringPermutation(N) {
 
     var size = N.length;
 
-    
+    for (var i = 0; i < 6; i++) {
 
+        var temp = N[0];
 
+        N = N.slice(1);
 
+        N = N + temp;
 
-    // console.log(this.rotateX);
-    // console.log(this);
-
-    // console.log(test());
+        // console.log(temp);
+        console.log(N);
+    }
 
 }
 
 // console.log(stringPermutation);
-console.log(stringPermutation("test"));
+console.log(stringPermutation("ABC"));
