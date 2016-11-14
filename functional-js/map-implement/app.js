@@ -48,6 +48,7 @@ var test = function() {
 // console.log(test());
 test();
 
+
 Array.prototype.map = function(projectionFunction) {
 	var results = [];
 
