@@ -80,6 +80,7 @@ LinkedList.prototype.remove = function(index){
     var length = this.length,
         currentNode = this.head,
         previousNode = null,
+        nodeToDelete = null,
         position = 0
         // newNode = new Node(value)
 
@@ -94,16 +95,25 @@ LinkedList.prototype.remove = function(index){
         var oldHead = this.head
         this.head = currentNode.next
         oldHead.next = null // remove node
+
+        this.length -= 1
+
+        return //exit
     }
 
     while(position < index){
-        debugger
+    // while(currentNode.next !== null){
+        // debugger
         previousNode = currentNode
         currentNode = currentNode.next
+        // nodeToDelete = previousNode.next
+        // currentNode = nodeToDelete.next
+
+        position += 1
+
     }
 
-
-
+    previousNode.next = currentNode.next
     console.log("list after node removed ", this.head)
 
 }
@@ -112,6 +122,7 @@ var testCase = new LinkedList();
 testCase.append(10);
 testCase.append(30);
 testCase.append(20);
+testCase.append(40);
 // debugger;
 testCase.insert(11, 0)//insert at HEAD
 testCase.insert(11, -1)//insert at out of bound index
@@ -119,4 +130,4 @@ testCase.insert(11, -1)//insert at out of bound index
 testCase.insert(2, 3)//insert at given index
 // testCase.append(3);
 testCase.remove(0);
-testCase.remove(3);
+testCase.remove(2);
