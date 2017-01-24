@@ -67,7 +67,7 @@ function Node(value) {
 }
 
 function BinarySearchTree() {
-    this.root = null
+    this.rootNode = null
     this.size = 0
   
 }
@@ -76,8 +76,8 @@ function BinarySearchTree() {
   // Auxiliary Space Complexity: 
 BinarySearchTree.prototype.insert = function(value) {
 
-    if(this.root === null){
-      this.root = new Node(value)
+    if(this.rootNode === null){
+      this.rootNode = new Node(value)
 
       this.size += 1
     }else{
@@ -107,7 +107,7 @@ BinarySearchTree.prototype.insert = function(value) {
       }//end findAndInsert
 
       //invoke helper function
-      findAndInsert(this.root)
+      findAndInsert(this.rootNode)
 
       this.size += 1
     }
@@ -118,10 +118,56 @@ BinarySearchTree.prototype.insert = function(value) {
 
   // Time Complexity: 
   // Auxiliary Space Complexity: 
-BinarySearchTree.prototype.search = function(value) {
-  
+BinarySearchTree.prototype.breadthFirstSearch = function(value) {
+
+    //Breadth First Search
+
+    console.log(value )
+
+    if(this.rootNode === null){ return [] }
+
+    var results = [],
+        queue = []
+    
+    queue.push(this.rootNode) // push rootNode into queue
+    
+    var currentNode
+
+    while(queue.length > 0){
+
+      currentNode = queue.shift()
+
+      if(currentNode.leftChild !== null){
+        queue.push(currentNode.leftChild)
+      }
+
+      if(currentNode.rightChild !== null){
+        queue.push(currentNode.rightChild)
+      }
+
+      results.push(currentNode.value)
+    }
+
+    return results
 };
 
+BinarySearchTree.prototype.depthFirstSearch = function(value){
+
+  //pre-order depth first search
+
+  function preOrderTraverse(currentNode){
+
+    if(currentNode === null){ return null }
+
+    if(currentNode.value === value){ return value }
+
+    return preOrderTraverse(currentNode.leftChild) || preOrderTraverse(currentNode.rightChild)
+  }
+
+  return preOrderTraverse(this.rootNode)
+
+
+}
 
 
 
@@ -135,7 +181,8 @@ bt.insert(15);
 bt.insert(9);
 console.log(bt);
 
-
+console.log("value not found breadthFirstSearch", bt.breadthFirstSearch(15))
+console.log("depthFirstSearch", bt.depthFirstSearch(15) === 15)
 
 
 
