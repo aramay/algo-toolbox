@@ -121,34 +121,79 @@ BinarySearchTree.prototype.insert = function(value) {
 BinarySearchTree.prototype.breadthFirstSearch = function(value) {
 
     //Breadth First Search
+    if(this.rootNode === null) { return false }
 
-    console.log(value )
+    if(this.rootNode.value === value) { return true }
 
-    if(this.rootNode === null){ return [] }
+    // else { return false }
 
-    var results = [],
-        queue = []
-    
-    queue.push(this.rootNode) // push rootNode into queue
-    
-    var currentNode
+    var queue = [],
+        currentNode
+
+    queue.push(this.rootNode)
 
     while(queue.length > 0){
 
       currentNode = queue.shift()
+      
+      console.log("currentNode ", currentNode)
 
       if(currentNode.leftChild !== null){
-        queue.push(currentNode.leftChild)
-      }
 
+        if(currentNode.leftChild.value === value){
+          return true
+        }
+        else{
+          queue.push(currentNode.leftChild)
+        }
+      }
+      
       if(currentNode.rightChild !== null){
-        queue.push(currentNode.rightChild)
-      }
 
-      results.push(currentNode.value)
+        if (currentNode.rightChild.value === value) {
+          return true
+        }
+        else{
+          queue.push(currentNode.rightChild)
+        }
+      }
+      
     }
 
-    return results
+    return false
+
+    
+
+
+
+
+    // console.log(value )
+
+    // if(this.rootNode === null){ return [] }
+
+    // var results = [],
+    //     queue = []
+    
+    // queue.push(this.rootNode) // push rootNode into queue
+    
+    // var currentNode
+
+    // while(queue.length > 0){
+
+    //   currentNode = queue.shift()
+
+    //   if(currentNode.leftChild !== null){
+    //     queue.push(currentNode.leftChild)
+    //   }
+
+    //   if(currentNode.rightChild !== null){
+    //     queue.push(currentNode.rightChild)
+    //   }
+
+    //   results.push(currentNode.value)
+    // }
+
+    // return results
 };
 
 BinarySearchTree.prototype.depthFirstSearch = function(value){
@@ -181,8 +226,8 @@ bt.insert(15);
 bt.insert(9);
 console.log(bt);
 
-console.log("value not found breadthFirstSearch", bt.breadthFirstSearch(15))
-console.log("depthFirstSearch", bt.depthFirstSearch(15) === 15)
+console.log("breadthFirstSearch", bt.breadthFirstSearch(15))
+// console.log("depthFirstSearch", bt.depthFirstSearch(15) === 15)
 
 
 
