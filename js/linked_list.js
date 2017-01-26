@@ -89,7 +89,7 @@ LinkedList.prototype.remove = function(index){
         return false
     }
         
-    //if index is greater than size or less than 0
+    //if index is 0, delete HEAD
     if(index === 0){
 
         var oldHead = this.head
@@ -118,6 +118,22 @@ LinkedList.prototype.remove = function(index){
 
 }
 
+LinkedList.prototype.printForward = function(){
+
+    function printHelper(currentNode){
+
+        if (currentNode === null) { return }
+        
+        printHelper(currentNode.next)
+        console.log("print forward ", currentNode)
+
+    }
+
+    printHelper(this.head)
+
+}
+
+
 var testCase = new LinkedList();
 testCase.append(10);
 testCase.append(30);
@@ -131,3 +147,6 @@ testCase.insert(2, 3)//insert at given index
 // testCase.append(3);
 testCase.remove(0);
 testCase.remove(2);
+
+console.log(testCase)
+testCase.printForward()
