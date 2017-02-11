@@ -18,6 +18,47 @@ All elements are positive
 function subArraySum(args, target){
 
     console.log(args)
+
+    var currentSum = args[0],
+        start = 0,
+        i = 1,
+        len = args.length - 1;
+
+    
+    for(i = 1; i <= len; i++){
+
+        while(currentSum > target && start < i -1){
+
+            currentSum = currentSum - args[start]
+
+            start ++
+
+        }
+
+        if(currentSum === target){
+            console.log("Subarray found")
+            console.log(i , start)
+            console.log(args.slice(i , start))
+            return true
+        }
+
+        
+        currentSum += args[i]
+
+    }
+    console.log(currentSum)
+
+    console.log("No subarray found")
+    return 0;
+    // while(args[index] !== undefined){
+
+    //     console.log(args[index])
+    //     index ++
+    // }
+
+    // break;
+
+
 }
 
 console.log(subArraySum([6,12,1,7,5,2,3], 14))

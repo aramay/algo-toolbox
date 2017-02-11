@@ -23,9 +23,12 @@ If the two inputs strings are the same, return false
 Assume only lowercase letters, no spaces
  */
 
-function oneEditDistance(args){
+function oneEditDistance(args, target){
 
     console.log(args)
+
+    
+
 }
 
 console.log(oneEditDistance("table"))

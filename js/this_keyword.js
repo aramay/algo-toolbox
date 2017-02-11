@@ -17,4 +17,5 @@ var bigBoat = {
 }
 
 bigBoat.boatInfo = boat.boatInfo
+
 console.log(bigBoat.boatInfo())
