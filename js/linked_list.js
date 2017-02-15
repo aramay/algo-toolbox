@@ -31,6 +31,13 @@ LinkedList.prototype.append = function (value) {
     console.log(this.length)
 }
 
+// LinkedList.prototype.appendMany = function(arr){
+
+//     for(var i=0; i<arr.length; i++){
+
+//     }
+// }
+
 LinkedList.prototype.insert = function (value, index){
 
     var length = this.length,
