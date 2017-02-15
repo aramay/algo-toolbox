@@ -1,5 +1,31 @@
 function insertionSort(n) {
 
+    
+    console.log("unsorted array ", n)
+
+    for(var i = 1; i < n.length; i++){
+
+        var value = n[i]
+
+        var hole = i
+
+        while(hole > 0 && n[hole - 1] > value){
+            
+            n[hole] = n[hole - 1]
+            hole = hole - 1
+
+        }
+
+        n[hole] = value
+
+
+    }
+
+    console.log("sorted array ", n)
+    
+    
+    
+    /* old implementation
     console.log("unsorted array ", n);
 
     var inner = 0; // counter for inner loop
@@ -21,6 +47,7 @@ function insertionSort(n) {
 
     }
     console.log("sorted array ", n);
+    */
 
 }
 
