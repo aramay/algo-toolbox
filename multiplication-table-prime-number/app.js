@@ -5,42 +5,31 @@ function Prime(limit){
 
     //generate number range
     for(var i=2; i<=limit; i++){
-        this.numList.push(i)
+        this.findPrimes(i)
     }
-
-    
 }
 
 /**
 The sieve of Eratosthenes. cases where we want N primes.
  **/
 
-Prime.prototype.findPrimes = function(){
+Prime.prototype.findPrimes = function(n){
 
-    console.log(this.limit)
-    console.log(this.numList)
+    console.log(n)
 
-    // console.log(n)
+    // //The square root of a number, n, written below is the number that gives n when multiplied by itself.
 
-    var results = []
-
-
-    for(var outer=0; outer <= this.numList.length - 1; outer++){
+    // var temp = Math.floor(Math.sqrt(n))
+    // console.log("temp ", temp)
     
-    var checkNumber = this.numList[outer]
+    // for(var i = 2; i <= temp; i++){
 
-        for(var inner=outer+1; inner < this.numList.length; inner++){
+    //     if(n % i === 0){
+    //         return false
+    //     }
+    // }
 
-            if(this.numList[inner] % checkNumber === 0){
-                
-                this.numList.splice(inner, 1)
-            }
-        }
-
-
-    }
-
-    console.log(this.numList)
+    // return true
 }
 
 Prime.prototype.multiplicationTable = function(){
