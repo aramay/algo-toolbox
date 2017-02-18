@@ -1,0 +1,14 @@
+{
+  "name": "multiplication-table-prime-number",
+  "version": "1.0.0",
+  "description": "a program that prints out a multiplication table of N prime number.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "aramay",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
