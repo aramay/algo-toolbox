@@ -3,12 +3,6 @@ function Prime(limit){
 
     this.numList = []
     this.limit = limit
-
-    // return this.limit
-    // for(var i=2; i<=limit; i++){
-    //     this.findPrimes(i)
-    // }
-    
 }
 
 
@@ -16,10 +10,7 @@ Prime.prototype.findPrimes = function(){
 
     //generate number range
     for(var n=2; n<=this.limit; n++){
-        // this.findPrimes(i)
-
-
-        //skip if even number
+        //skip if number is even
         if(n !== 2){
             if(n % 2 === 0){
                 // break
@@ -29,17 +20,16 @@ Prime.prototype.findPrimes = function(){
         //The square root of a number, n, is the number that gives n when multiplied by itself.
 
         var temp = Math.floor(Math.sqrt(n))
-        // console.log("temp ", temp)
 
         /**
          An integer is prime if it is not divisible by any prime less than or equal to its square root
         **/
-        var isPrime = true; //flag to skip numbers not prime
+
+        //flag to skip numbers not prime
+        var isPrime = true; 
         for(var i = 2; i <= temp; i++){
 
             if(n % i === 0){
-                // return
-                // continue
                 isPrime = false;
                 break;
             }
