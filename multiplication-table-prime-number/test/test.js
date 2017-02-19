@@ -2,14 +2,6 @@ var assert = require('assert');
 var expect    = require("chai").expect;
 var app = require('../app.js')
 
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it('should return -1 when the value is not present', function() {
-//       assert.equal(-1, [1,2,3].indexOf(4));
-//     });
-//   });
-// });
-
 
 describe("Prime number constructor", function(){
 
@@ -19,13 +11,13 @@ describe("Prime number constructor", function(){
 
     describe("#Prime()", function(){
         it("should set limit", function(){
-            
+
             expect(test.limit).to.equal(3)
         })
     })
     describe("#Prime()", function(){
         it("should set an empty array", function(){
-            console.log(test.numList)
+            // console.log(test.numList)
 
             expect(test.numList).to.deep.equal([])
         })
@@ -34,7 +26,7 @@ describe("Prime number constructor", function(){
         it("should contain list of primes in the given limit", function(){
 
             var newTest = new app._test.init(10)
-            console.log("newTest ", newTest)
+            // console.log("newTest ", newTest)
             expect(newTest.findPrimes()).to.deep.equal([2,3,5,7])
         })
     })

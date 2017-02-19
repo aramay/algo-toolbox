@@ -13,7 +13,6 @@ Prime.prototype.findPrimes = function(){
         //skip if number is even
         if(n !== 2){
             if(n % 2 === 0){
-                // break
                 continue
             }
         }
@@ -68,7 +67,6 @@ var test = new Prime(30)
 
 console.log(test.findPrimes())
 console.log(test.multiplicationTable())
-// test.findPrimes()
 
 exports._test = {
     init: Prime
