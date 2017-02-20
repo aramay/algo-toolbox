@@ -1,4 +1,7 @@
-var isAnagram = function (s, t) {
+
+
+/**
+ * var isAnagram = function (s, t) {
     if (s.length != t.length) {
         return false;
     }
@@ -9,5 +12,6 @@ var isAnagram = function (s, t) {
 
     return s1 == t1;
 };
+*/
 
 console.log(isAnagram("xxxxxxx", "nagaram"));

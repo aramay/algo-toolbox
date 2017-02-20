@@ -32,6 +32,12 @@ function oneEditDistance(args, target){
         idx1 = 0,
         idx2 = 0,
         edits = 0;
+    
+    // var x = Math.abs(len1 - len2)
+    // var x = 
+    if (Math.abs(len1 - len2) > 1) { console.log(true) }
+
+    // console.log("x ", x)
 
     while(idx1 < len1){
 
@@ -69,12 +75,7 @@ console.log(idx1)
     
 
     edits === 1 ? true : false
-    // if(edits > 1){
-    //     return false
-    // }
-    // else{
-    //     return true
-    // }
+
 
 }
 

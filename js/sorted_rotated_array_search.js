@@ -61,24 +61,7 @@ function sortedRotatedSearch(args, target){
 
     if(start == end && target != args[start]) { return - 1 }
     return start
-
-    // function helperSortedRotatedSearch(start, end){
-
-    //     while(len > 0){
-
-    //         if(args[mid] === target){
-    //             return mid
-    //         }
-    //         else if(args[mid] > target){
-
-    //             start = mid + 1
-    //             helperSortedRotatedSearch(start, end)
-    //         }
-
-    //         len --
-    //         // start ++
-    //     }
-    // }
+    
 }
 
 // console.log(sortedRotatedSearch([6,8,11,15,17,3,5], 3))

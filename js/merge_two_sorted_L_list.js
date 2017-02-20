@@ -32,16 +32,10 @@ LinkedList.prototype.append = function (value) {
 }
 
 LinkedList.prototype.appendMany = function(arr){
-
-    // var test = new LinkedList()
-
+    
     for(var i=0; i<arr.length; i++){
-
         this.append(arr[i])
     }
-
-    // console.log(test)
-    // return test
 }
 
 LinkedList.prototype.mergeTwoSortedList = function(list1, list2){
@@ -66,6 +60,7 @@ LinkedList.prototype.mergeTwoSortedList = function(list1, list2){
         }else{
             // console.log(merged.append)
             merged.append(head2.value)
+            // this.append(head2.value)
             //recursive call
             merge(head1, head2.next)
         }
@@ -73,7 +68,7 @@ LinkedList.prototype.mergeTwoSortedList = function(list1, list2){
 
     merge(list1.head, list2.head)
 
-    console.log(merged)
+    console.log("merged list ", merged.head)
 
     return merged
 
@@ -95,4 +90,3 @@ list2.appendMany([2,3,20])
 console.log(list2)
 
 merge.mergeTwoSortedList(list1, list2)
-console.log(merge)
