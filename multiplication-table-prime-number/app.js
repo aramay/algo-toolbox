@@ -1,73 +1,80 @@
-// var Prime = function(limit){
-function Prime(limit){
+// var temp = [ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ]
+var temp = [ 1, 2, 3, 5, 7, 11]
 
-    this.numList = []
-    this.limit = limit
+var rowMax = temp.length
+var colMax = temp.length
+
+var result = []
+
+result[0] = temp
+
+console.log(result)
+
+
+function matrix( rows, cols, defaultValue){
+
+  var arr = [];
+  arr.push(temp);
+  // Creates all lines:
+  for(var i=1; i < temp.length; i++){
+      var arrMultiply = [];
+
+      for(var j=0; j < temp.length; j++){
+        arrMultiply.push(temp[i]*temp[j]);
+      }
+      arr.push(arrMultiply);
+  }
+
+  arr[0][0] = -1;
+
+  return arr;
 }
 
+var temp = [1, 2, 3, 5, 7, 11]
 
-Prime.prototype.findPrimes = function(){
+var rowMax = temp.length
+var colMax = temp.length
 
-    //generate number range
-    for(var n=2; n<=this.limit; n++){
-        //skip if number is even
-        if(n !== 2){
-            if(n % 2 === 0){
-                continue
-            }
-        }
-        //The square root of a number, n, is the number that gives n when multiplied by itself.
+var arr = matrix(rowMax, colMax, temp);
 
-        var temp = Math.floor(Math.sqrt(n))
+console.log(arr)
+console.table(arr)
 
-        /**
-         An integer is prime if it is not divisible by any prime less than or equal to its square root
-        **/
+console.log(result)
+console.table(result)
 
-        //flag to skip numbers not prime
-        var isPrime = true; 
-        for(var i = 2; i <= temp; i++){
+// for(var x=0; x< 5; x++){
+  
+  // for (var row=0; row<rowMax; row++){
+    
+  //   result[row] = new Array()
+    
+  //   if(row === 0){
+  //     // result[row] = 0
 
-            if(n % i === 0){
-                isPrime = false;
-                break;
-            }
-        }
+  //     // result[row] = temp
+  //     // result.push([2])
+  //     // continue
+  //   }
 
-        if (isPrime) {
-           this.numList.push(n)
-        }
+
+
+    // for (var col=0; col<colMax; col++){
         
-    }
+    //     if(col === 0){
+    //       result[row][col]
+    //     }
+    //     // if(col === 0 && row === 0){
+    //     //   result[0][0] = 0
+    //     // }
 
-    return this.numList
+    //     result[row][col] = temp[col+1]
+    //     // result[1][col+1] = temp[col]
 
-}
+    //     // result[row][0] = temp[col]
+        
+    // }
+  // }
 
-Prime.prototype.multiplicationTable = function(){
 
-    console.log("multi ", this.numList)
-
-    var list = this.numList
-
-    for(var i=0; i<list.length; i++){
-
-        var prime = list[i]
-
-        for(var product=1; product<=10; product++){
-
-            console.log(prime + " x " + product + " = " + prime*product)
-            
-        }
-        console.log("*************")
-    }
-}
-
-var test = new Prime(30)
-
-console.log(test.findPrimes())
-console.log(test.multiplicationTable())
-
-exports._test = {
-    init: Prime
-}
+// }

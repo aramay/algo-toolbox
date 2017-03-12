@@ -1,0 +1,172 @@
+// write the reducer for the counter application
+// Reducer accepts state and action as arguments 
+// and returns the next state
+
+// function counter(state = 0, action){
+
+const counter = (state = 0, action) => {
+//   if(typeof state === 'undefined'){
+//     /*initial state of the application is 0.*/
+//     return 0
+//   }
+  
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+
+
+// const createStore = (reducer) => {
+  
+//   console.log(reducer)
+  
+//   let state;
+//   let listeners = []
+//       console.log(listeners)
+  
+//   const getState = () => {
+//     return state
+//   };
+  
+//   const dispatch = (action) => {
+    
+//     console.log(action)
+    
+//     state = reducer(state, action);
+//     listeners.forEach(listener => listener())
+//   };
+  
+//   const subscribe = (listener) => {
+
+//     listeners.push(listener);
+    
+//     return () => {
+//       listeners = listeners.filter(l => l !== listener)
+//     }
+//   };
+  
+//   dispatch({});
+  
+//   return { getState, dispatch, subscribe };
+// }
+
+
+const { createStore } = Redux
+
+/*This store binds together the three principles of 
+Redux. 
+
+1) It holds the current application's state object. 
+2) It lets you dispatch actions. 
+3) When you create it, you need to specify the reducer that tells how state 
+is updated with actions.*/
+
+const store = createStore(counter);
+
+
+console.log(store.getState())
+
+//It lets you dispatch actions to change the state of your application. 
+// store.dispatch({ type: 'INCREMENT'})
+console.log(store.getState())
+
+/*It lets you register a callback that the Redux 
+store will call any time an action has been dispatched, 
+so that you can update the UI of your application. 
+It will reflect the current application state.*/
+
+
+
+// const render = () => {
+//   document.body.innerText = store.getState();
+// }
+
+const Counter = ({
+  value,
+  onIncrement,
+  onDecrement
+
+}) => (
+  <div>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+  </div>
+)
+
+
+const render = () => {
+  
+  ReactDOM.render(
+  <Counter value={store.getState()} 
+  onIncrement = {() => 
+    
+       store.dispatch({
+       type: 'INCREMENT'
+      })
+    }
+   
+  onDecrement = {() => 
+
+     store.dispatch({
+     type: 'DECREMENT'
+    })
+  }
+/>,
+  document.getElementById("root")
+  );
+};
+
+
+store.subscribe(render)
+
+render();
+
+// store.subscribe(() => {
+//   document.body.innerText = store.getState();
+// });
+
+// document.addEventListener("click", function(){
+//   store.dispatch({ type: 'INCREMENT'})
+// })
+
+/*********/
+expect(
+  counter(0, { type: 'INCREMENT'})
+).toEqual(1)
+
+expect(
+  counter(1, { type: 'INCREMENT'})
+  //type describes the action
+).toEqual(2)
+
+expect(
+  counter(2, { type: 'DECREMENT'})
+  //type describes the action
+).toEqual(1)
+
+/* if we dispatch an action that it does 
+not understand, it should return the current 
+state of the application.*/
+expect(
+  counter(2, { type: 'SOMETHING'})
+  //type describes the action
+).toEqual(2)
+
+/*
+if the reducer receives undefined as the state argument, 
+it must return what it considers to be the initial 
+state of the application.*/
+expect(
+  counter(undefined, {})
+  //type describes the action
+).toEqual(0)
+
+
+console.log("test passed")
