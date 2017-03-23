@@ -1,0 +1,20 @@
+1)  Container with most water
+    Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
+    n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).
+    Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+    Ex: maxArray( [2, 5, 4, 1, 2, 4, 3 ] )
+
+2)  Assume you have a method indexOf which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to indexOf( e.g., 'waterbottle' is a rotation of 'erbottlewat'")
+
+3) Check if two strings are anagram
+ Two strings are anagram when they have the same letters and string length, excluding space/ punctuation and capitalization. 'silent' can be rearranged to 'listen' and  therefore they
+ are anagram to each other. What about checking if two numbers are anagram?
+ 
+4) Given a set of non-overlapping & sorted intervals, insert a new interval into the intervals (merge if necessary).
+Example 1:
+Given intervals [1,3],[6,9], insert and merge [2,5] in as [1,5],[6,9].
+
+Example 2:
+Given [1,2],[3,5],[6,7],[8,10],[12,16], insert and merge [4,9] in as [1,2],[3,10],[12,16].
+
+This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
