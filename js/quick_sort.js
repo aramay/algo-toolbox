@@ -40,7 +40,7 @@ function partition (args, start, end) {
 
   console.log(pIndex, i)
 
-   // this swap moves pivot to its place
+   // this function moves pivot to its place
   function swap (pIndex, i) {
     // i = i - 1
     console.log('inside swap p ', pIndex, i)
