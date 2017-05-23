@@ -1,0 +1,252 @@
+1) Invert a binary tree.
+Input:
+         4
+       /   \
+      2     7
+     / \   / \
+    1   3 6   9
+
+Output:
+         4
+      /   \
+      7     2
+     / \   / \
+    9   6 3   1
+
+
+
+2) Given a undirected graph with weights, return the sum of the weight of each path between two nodes (shortest path between two vertices). Assume there are no cycles. 
+
+Example:
+
+
+Input:
+       A
+       | 1
+       B
+   2 /   \ 3
+    C     D
+    
+Output:
+18
+since 
+A to B has weight 1
+A to C has weight 3
+A to D has weight 4
+B to C has weight 2
+B to D has weight 3
+C to D has weight 5
+
+3) Write an iterative function to implement preorder traversal on a given binary tree
+(note that recursion algorithm is not used here), and return the node values in an array.
+
+4) Do a breadth first search traversal given a tree (may not be a binary tree).
+
+Example:
+         j
+     /   \    \ 
+    f      k   i
+  /   \      \
+ a     h      z
+  \
+   d
+   
+input tree:
+var tree = {
+  value: 'j',
+  childNodes: [{
+    value: 'f',
+    childNodes:[{
+      value: 'a',
+      childNodes: [{
+        value: 'd', 
+        childNodes: []
+      }]
+    },
+    {
+      value: 'h',
+      childNodes: []
+    }]
+  },
+  {
+    value: 'k',
+    childNodes:[{
+      value: 'z',
+      childNodes: []
+    }]
+  },
+  {
+    value: 'i',
+    childNodes:[]
+  }]
+}
+
+Output: 'j f k i a h z d'
+
+////////////////////////////////////////////////////
+//////////////////// Jack Solution /////////////////
+////////////////////////////////////////////////////
+1) function invertTree( root ) {
+    var temp = null;
+
+    if ( ! root ) {
+        return null;
+    }
+
+    if ( root.left === null && root.right === null ) {
+        return root;
+    }
+
+    temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    invertTree( root.left );
+    invertTree( root.right );
+}
+
+3)
+function preorderTraversal(node){
+  if ( node && node.left ) {
+    preorderTraversal(node.left)
+  }
+
+  if ( node && node.right ) {
+    preorderTraversal(node.right)
+  }
+  
+  console.log(node.value);
+}
+
+4) 
+var bfs = function (node) {
+  var queue = [],
+    result = [],
+    current = null;
+
+  queue.push( node );
+  
+  while (queue.length){
+    current = queue.shift();
+    
+    if (current){
+      result.push(current.value);
+      queue = queue.concat(current.childNodes);
+    }
+  }
+
+  return result.join(' ');
+}
+
+////////////////////////////////////////////////////
+//////////////////// Sheldon Solution //////////////
+////////////////////////////////////////////////////
+1)
+function invertTree() {
+
+    tmp = this.leftChild
+    this.leftChild = this.rightChild
+    this.rightChild = tmp
+
+    if (this.leftChild) 
+        this.leftChild.invertTree()
+
+    if (this.rightChild) 
+        this.rightChild.invertTree()
+}
+
+////////////////////////////////////////////////////
+//////////////////// David Solution ////////////////
+////////////////////////////////////////////////////
+1) 
+const binaryReverse = (node) => {
+  if (node.left) { binaryReverse(node.left) }
+  if (node.right) { binaryReverse(node.right) }
+  let temp = node.left
+  node.left = node.right
+  node.right = temp
+}
+
+3) 
+const preorderFlatten = (root) => {
+  var treeVals = []
+  
+  const dfTraversal = (node) => {
+    treeVals.push(node.value)
+    if (node.left) { dfTraversal(node.left) }
+    if (node.right) { dfTraversal(node.right) }
+  }
+
+  dfTraversal(root)
+
+  return treeVals
+}
+
+4)
+const bfs = (root, target) => {
+  var queue = []
+  
+  const bfTraverse = (node, target) => {
+    if (node.value === target) { return node }
+
+    node.childNodes.forEach((child) => { queue.push(child) })
+    queue.forEach((child) => { return bfTraverse(child, target) })
+  }
+
+  return bfTraverse(root, target)
+}
+////////////////////////////////////////////////////
+//////////////////// Hanyen Solution ////////////////
+////////////////////////////////////////////////////
+1. 
+var invertBt = function(tree) {
+    
+    var temp = {};
+    
+    if (tree.left) {
+        temp = tree.left;
+        tree.left = tree.right;
+        tree.right = temp;
+    } else {
+        return;
+    }
+    invertBt(tree.left);
+    invertBt(tree.right);
+    
+}
+
+////////////////////////////////////////////////////
+//////////////////Jim///////////////////////////////
+////////////////////////////////////////////////////
+Q1.
+function invertTree(root) {
+  if (root) {   //if root !== null 
+    left = root.left;
+    right = root.right;
+    //swap left and right
+    var tmp = left;
+    left = right;
+    right = tmp;
+    //then invert subtrees
+    invertTree(left);
+    invertTree(right);    
+  }
+}
+
+Q3.
+function preorderIterative (root) {
+  if (root === null) return null;
+  
+  var stack = [];
+  var ans = [];
+  var tmpNode; 
+  stack.push(root);
+  while (stack.length > 0) {
+    tmpNode = stack.pop();
+    ans.push(tmpNode.val);
+    if (tmpNode.left !== null) stack.push(tmpNode.left);
+    if (tmpNode.right !== null) stack.push(tmpNode.right);    
+  }
+  
+  return ans;
+}

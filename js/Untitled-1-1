@@ -1,0 +1,52 @@
+
+/**
+ * Please write code to traverse tree using Breadth First Search
+ */
+ 
+ function Node() {}
+ 
+ 
+     2
+     |
+     3
+    / | \
+    
+    3 7    9
+
+ function traverseBFS(rootNode) {
+     
+     var queue = [],
+         currentNode,
+         visited = this Set();
+         
+     if(this.rootNode === null){return false}
+     
+     if(this.rootNode.value === value){ return this.rootNode.value }
+         
+     queue.push(this.rootNode)
+     
+     while(queue.lenght > 0){
+         
+         visited.add(currentNode)
+         
+         currentNode = queue.shift()
+         
+         if(currentNode.value === value){
+             return currentNode.value            
+         }
+         
+         else{
+             if(currentNode.child !== null){
+                 
+                 if(currentNode.child.value === value){
+                     console.log(currentNode.value)
+                 }
+                 else{
+                     queue.push(current.child)
+                 }
+                 
+             }
+         }
+             
+     }
+ }

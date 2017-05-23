@@ -36,68 +36,111 @@ You will be given A as an argument to the function you need to implement, and yo
 function prettyPrint (args) {
    // console.log(args)
 
-  var matrix = helper(args)
+   if(args <= 0){
+	        return []
+	    }
 
-  console.log('matrix ', matrix)
+  var matrix = helper(args),
+      N = args;
+   
+   console.log(matrix)
 
-  var rows = matrix.length,
-     cols = matrix[0].length
+//   console.log('matrix ', matrix)
 
-  var topRow = 0,
-     btmRow = rows - 1,
-     leftCol = 0,
-     rightCol = cols - 1
+var rows = matrix.length,
+   cols = matrix[0].length
 
-   // go right to left
-  for (var i = leftCol; i <= rightCol; i++) {
-     matrix[topRow][i] = 3
-   }
+var topRow = 0,
+   btmRow = rows - 1,
+   leftCol = 0,
+   rightCol = cols - 1
 
-  topRow++ // increment topRow
+while (topRow < btmRow && leftCol < rightCol) {
+   
 
-   // go top to bottom
-  for (var j = topRow; j <= btmRow; j++) {
-     matrix[j][rightCol] = 3
 
-      // console.log(matrix[j][cols])
-   }
-
-  rightCol--
-
-  if (topRow < btmRow) {
-     for (var y = rightCol; y <= leftCol; y--) {
-        matrix[btmRow][y] = 2
-      }
-     btmRow--
-   }
-
-  if (leftCol < rightCol) {
-     for (var x = btmRow; x <= topRow; x--) {
-        matrix[x][leftCol] = 2
+      // go right to left
+   for (var i = leftCol; i <= rightCol; i++) {
+      matrix[topRow][i] = N
       }
 
-     rightCol--
-   }
+   topRow++ // increment topRow
 
-  console.log(matrix)
-   // helper to create matrix
-  function helper (args) {
-     var row = [],
-        col = []
+      // go top to bottom
+   for (var j = topRow; j <= btmRow; j++) {
+      matrix[j][rightCol] = N
+      }
 
-     for (var x = 0; x < args; x++) {
-        row.push(x)
-      
-      for (var y = 0; y < args; y++) {
-            // col.push(y)
-         col.push(row)
+   rightCol--
+
+
+   //go left to right
+   if (topRow < btmRow) {
+
+      console.log("go down if state")
+
+      for (var y = rightCol; y >= leftCol; y--) {
+         matrix[btmRow][y] = N
+         console.log("go down")
          }
+      btmRow--
+   }
+   
+   //go bottom to top
+
+   if (leftCol < rightCol) {
+      for (var x = btmRow; x >= topRow; x--) {
+         matrix[x][leftCol] = N
+         }
+
+      leftCol ++
       }
 
-
-     return col
+   console.log("before final step ", matrix)
+      // helper to create matrix
+      N -= 1
    }
+
+
+   console.log("done")
+   if (topRow === btmRow && rightCol === leftCol) {
+      matrix[topRow][btmRow] = 1
+   }
+
+   // console.log("completed ", matrix)
+   return matrix;
+
+  function helper (args) {
+
+         var N = args * 2 - 1,
+         row = new Array(N)
+
+         for (var x = 0; x < N; x++) {
+            row[x] = new Array(N)
+            
+         }
+
+      console.log(row)
+      return row
+
+      /**
+       * for (var y = 0; y < N; y++) {
+         
+         col.push(1)
+
+         row.push(col)
+         }
+     return row
+       */
+      
+   }
+      
+   
+
 }
 
-var input = 4
+
+
+var input = 3
 console.log(prettyPrint(input))
+console.log(prettyPrint(0))

@@ -1,0 +1,105 @@
+1) Given a undirected graph with weights, return the sum of the weight of each path between two nodes (shortest path between two vertices). Assume there are no cycles. 
+
+Example:
+
+
+Input:
+       A
+       | 1
+       B
+   2 /   \ 3
+    C     D
+    
+Output:
+18
+since 
+A to B has weight 1
+A to C has weight 3
+A to D has weight 4
+B to C has weight 2
+B to D has weight 3
+C to D has weight 5
+
+2) There are n students in a class. Every student can have 0 or more friends.
+    If A is a friend of B and B is a friend of C then A and C are also friends.
+    So we define a friend circle as a group of students who are friends as given by above definition.
+    Given an nXn-matrix friends which consists of characters Y or N.
+    If friends[i][j]=Y, then ith and jth students are friends, friends[i][j]=N, then i and j are not friends.
+    Find the total number of such friend circles in the class.
+    
+3) Given a grid map made of boolean 2D matrix, where '1' represents land and '0' represents water, count the number of islands. An island is surrounded by water and may be connected by adjacent lands horizontally or vertically. Assume that all four edges of the grid are surrounded by water.
+
+Ex:
+matrix = [
+    [1,1,0,0,0],
+    [0,1,0,0,1],
+    [1,0,0,1,1],
+    [0,0,0,0,0],
+    [1,0,1,0,1],
+];
+
+output: 
+
+
+############################
+#                          #
+############################
+
+1) Invert a binary tree.
+Input:
+         4
+       /   \
+      2     7
+     / \   / \
+    1   3 6   9
+
+Output:
+         4
+      /   \
+      7     2
+     / \   / \
+    9   6 3   1
+
+
+
+
+
+
+2) Given a undirected graph with weights, return the sum of the weight of each path between two nodes (shortest path between two vertices). Assume there are no cycles. 
+
+Example:
+
+
+Input:
+       A
+       | 1
+       B
+   2 /   \ 3
+    C     D
+    
+Output:
+18
+since 
+A to B has weight 1
+A to C has weight 3
+A to D has weight 4
+B to C has weight 2
+B to D has weight 3
+C to D has weight 5
+
+3) Write an iterative function to implement preorder traversal on a given binary tree
+(note that recursion algorithm is not used here), and return the node values in an array.
+
+4) Do a breadth first search traversal given a tree (may not be a binary tree).
+
+Example:
+          j
+     /   \    \ 
+    f      k   i
+  /   \      \
+ a     h      z
+  \
+   d
+   
+Output: j f k i a h z d
+

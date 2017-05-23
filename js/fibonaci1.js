@@ -39,4 +39,4 @@ function computeFibonacci(n) {
 }
 
 // console.log(computeFibonacci(10));
-computeFibonacci(10);
+computeFibonacci(6);

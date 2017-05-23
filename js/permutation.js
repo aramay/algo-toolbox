@@ -4,6 +4,36 @@ find all permutation of input string
 
  *
  */
+function permuPalin(str){
+  var charCount = new Set();
+  
+  str.split('').forEach(function(char){
+    if (charCount.has(char)){
+      charCount.delete(char);
+    } else {
+      charCount.add(char);
+    }
+  })
+  
+  return charCount.size < 2;
+}
+
+console.log(permuPalin('carrace'));
+console.log(permuPalin('racecar'));
+console.log(permuPalin('nnaahhh'));
+console.log(permuPalin('hello'));
+
+
+//'abcd'
+
+// 'rracecarr'
+// 'carrace'
+
+
+// '4 * 3 * 2 * 1' => 24
+// '100 * 99 * 98 * 97'
+
+
 
 function findPermutation (args) {
    // return args
