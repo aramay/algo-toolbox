@@ -10,12 +10,14 @@ def merge(line):
    out_list = [0] * len(line)
    current_index = 0
    result = []
-   n = 0
+   pivot = 0
    print("start out_list ", out_list)
    
    for i in range(len(line)):
       """
-      Iterate over the input and create an output list that has all of the non-zero tiles slid over to the beginning of the list with the appropriate number of zeroes at the end of the list.
+      Iterate over the input and create an output list that has all of the non-zero 
+      tiles slid over to the beginning of the list with the appropriate number of 
+      zeroes at the end of the list.
       """
       if line[i] != 0:
          out_list[current_index] = line[i]
@@ -23,14 +25,13 @@ def merge(line):
 
    print("out_list done ", out_list)
 
-   while n < len(out_list):
+   while pivot < len(out_list):
       """
       create sub-list of 2 pairs from previous step -> out_list
       """
       
-      sub_list = out_list[n:n+2]
+      sub_list = out_list[pivot:pivot+2]
       print("sub list ", sub_list)
-      print(len(sub_list))
 
       # 1 - check if sub-list has only 1 element
       # on last iteration, prvenent indexOutOfBound error
@@ -38,7 +39,7 @@ def merge(line):
          print("less than 2 ", result)
          result.append(sub_list[0])
 
-         n += 1
+         pivot += 1
       # 2 - check if two pairs are same value
       # if yes -> then add 
       # append to result list
@@ -47,7 +48,7 @@ def merge(line):
 
          print("result list 2nd iter ", result)
 
-         n += 2
+         pivot += 2
       
       # 3 - if two pairs are not same value
       # then push only non-zero value to result
@@ -55,7 +56,7 @@ def merge(line):
          result.append(sub_list[0])
          print("result list 3rd iter ", result)
          
-         n += 1
+         pivot += 1
 
    # check if number of list elements in destination list is equal to source
 
@@ -66,17 +67,16 @@ def merge(line):
       
    return result
 
-
-result = merge([2,0,2,4])
-
-print ([4, 4, 0, 0] == result)
-
-# result1 = merge([4, 2, 2])
-
-# print ( [4, 4, 0] == result1)
-
 """
 [2,0,2,4] should return 
 [4, 4, 0, 0]
 [4,4,0,0]
 """
+
+ans = merge([2,0,2,4])
+
+print ([4, 4, 0, 0] == ans)
+
+# ans1 = merge([4, 2, 2])
+
+# print ( [4, 4, 0] == ans1)
