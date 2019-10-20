@@ -8,9 +8,9 @@ myList.append(2)
 digits = [1,2,3]
 
 for x in digits:
-   numbers.append(x)
+    numbers.append(x)
 
-print numbers
+print(numbers)
 
 names = ["John", "Eric", "Jessica"]
 
