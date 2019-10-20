@@ -12,22 +12,28 @@ def reverse_string(parameter_list):
    
    left_i = 0
    right_i = len(parameter_list) - 1
-   tmp_var = 0
-   counter = 0
 
-   while counter < len(parameter_list):
-      print('\n', counter)
+   while left_i < right_i:
+      parameter_list[left_i], parameter_list[right_i] = parameter_list[right_i], parameter_list[left_i]
 
-      tmp_var = parameter_list[left_i]
-      parameter_list[left_i] = parameter_list[right_i]
-      parameter_list[right_i] = tmp_var
-
-      right_i -= 1
       left_i += 1
+      right_i -= 1
 
-      counter += 1
+   return parameter_list   
 
-   return parameter_list
+   # while counter < len(parameter_list):
+   #    print('\n', counter)
+
+   #    tmp_var = parameter_list[left_i]
+   #    parameter_list[left_i] = parameter_list[right_i]
+   #    parameter_list[right_i] = tmp_var
+
+   #    right_i -= 1
+   #    left_i += 1
+
+   #    counter += 1
+
+   # return parameter_list
 
    # return ["r", "x", "c", "a"]
 
