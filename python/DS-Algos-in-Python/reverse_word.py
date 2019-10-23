@@ -41,7 +41,8 @@ def reverse_words(parameter_list):
          reverse_characters(message, current_index, x - 1)
 
 
-         current_index += 1
+         # current_index += 1 # critical error 
+         current_index = x + 1
 
 
    return message
