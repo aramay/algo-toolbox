@@ -19,7 +19,7 @@ def reverse_string(parameter_list):
       left_i += 1
       right_i -= 1
 
-   return parameter_list   
+   return parameter_list
 
    # while counter < len(parameter_list):
    #    print('\n', counter)
@@ -44,5 +44,17 @@ class Test(unittest.TestCase):
       actual = reverse_string(["a", "c", "x", "r"])
       expected = ["r", "x", "c", "a"]
       self.assertEqual(actual, expected)
+
+   def test_empty_string(self):
+      list_of_chars = []
+      reverse_string(list_of_chars)
+      expected = []
+      self.assertEqual(list_of_chars, expected)
+
+   def test_single_character_string(self):
+      list_of_chars = ['A']
+      reverse_string(list_of_chars)
+      expected = ['A']
+      self.assertEqual(list_of_chars, expected)
 
 unittest.main(verbosity=2)
