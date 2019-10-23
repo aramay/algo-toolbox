@@ -11,14 +11,12 @@ The goal of this question is to practice manipulating strings in place. Since we
 """
 import unittest
 
-message = [ 'c', 'a', 'k', 'e', ' ',
-            'p', 'o', 'u', 'n', 'd', ' ',
-            's', 't', 'e', 'a', 'l' ]
+# message = [ 'c', 'a', 'k', 'e', ' ',
+#             'p', 'o', 'u', 'n', 'd', ' ',
+#             's', 't', 'e', 'a', 'l' ]
 
 def reverse_characters(message, left_i, right_i):
-   
-   left_i = 0
-   right_i = len(message) - 1
+
 
    while left_i < right_i:
       message[left_i], message[right_i] = message[right_i], message[left_i]
@@ -26,12 +24,12 @@ def reverse_characters(message, left_i, right_i):
       left_i += 1
       right_i -= 1
 
-   return message
+   # return message
 
-def reverse_words(parameter_list):
+def reverse_words(message):
    current_index = 0
 
-   reverse_characters(parameter_list, 0, len(parameter_list) - 1)
+   reverse_characters(message, 0, len(message) - 1)
 
    # print(words)
 
