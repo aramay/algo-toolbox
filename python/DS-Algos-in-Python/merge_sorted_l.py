@@ -6,67 +6,46 @@ def merge_lists(my_list, alices_list):
 
     # Combine the sorted lists into one large sorted list
     merged_l = []
-    
     index_1 = 0
     index_2 = 0
-    current_i = 0
 
     total_l = len(my_list) + len(alices_list)
-    
-    # print(my_list[index_1])
-    
-    if len(my_list) == 0:
-        return alices_list
-    
-    elif len(alices_list) == 0:
-        return my_list
-    elif len(my_list) == 0 or len(alices_list) == 0:
-        return []
-        
-    # while index_1 < len(my_list) and index_2 < len(alices_list):
-    while current_i < total_l:
-        
-        # pdb.set_trace()
-        print (index_1)
-        print (index_2)
 
-        if index_1 >= len(my_list):
+    current_i = 0
+
+    if not my_list and not alices_list:
+        return merged_l
+
+
+    while current_i < total_l:
+
+        if index_1 > len(my_list) - 1:
+
             merged_l.append(alices_list[index_2])
 
             index_2 += 1
-
-        elif index_2 >= len(alices_list):
+            
+        elif index_2 > len(alices_list) - 1:
+            
             merged_l.append(my_list[index_1])
 
             index_1 += 1
-
+        
         elif my_list[index_1] < alices_list[index_2]:
             
-            # print(index_1)
-            
             merged_l.append(my_list[index_1])
-            
+
             index_1 += 1
-            
-            print(merged_l)
-            
-        else:
-            alices_list[index_2] < my_list[index_1]
-            
-            # print(index_2)
+
+        elif alices_list[index_2] < my_list[index_1]:
             
             merged_l.append(alices_list[index_2])
-            
-            index_2 += 1
 
-            print(merged_l)
+            index_2 += 1
 
         current_i += 1
 
     return merged_l
-
-
-
 
 # Tests
 
