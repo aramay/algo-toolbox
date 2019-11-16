@@ -36,28 +36,31 @@ class MaxStack(object):
 
       self.stack = Stack()
       self.max_stack = Stack()
+      self.item = 0
 
    def push(self, item):
 
-      self.item = item
+      self.stack.push(item)
 
-      if self.item >= self.max:
-         Stack.push(self, item)
-         self.max = self.item
-
-   # for item in self.items:
-   #    if item > max:
-   #       Stack.push(self, item)
+      if self.max_stack.peek() is None or item >= self.max_stack.peek():
+         self.max_stack.push(item)
 
    def pop(self):
-      return Stack.pop(self)
+      item = self.stack.pop()
+
+      if item == self.max_stack.peek():
+         self.max_stack.pop()
+      
+      return item
 
    def get_max(self):
-      return Stack.peek(self)
+      return self.max_stack.peek()
 
    def __repr__(self):
 
-      return (f'{self.item}')
+      for item in self.max_stack.items:
+         # pass
+         print (f'{item}')
 
 
 
@@ -67,11 +70,11 @@ class MaxStack(object):
 class Test(unittest.TestCase):
 
 
-   # def test_push(self):
-   #    m = MaxStack()
-   #    m.push(5)
-   #    m.push(6)
-   #    print (m.__repr__())
+   def test_push(self):
+      m = MaxStack()
+      m.push(5)
+      m.push(6)
+      print (m.__repr__())
 
    def test_stack_usage(self):
       max_stack = MaxStack()
