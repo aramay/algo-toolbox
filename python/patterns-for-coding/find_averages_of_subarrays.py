@@ -29,6 +29,28 @@ def find_avg_subarry(arr, k):
 
    return result
 
+def find_avg_subarry1(arr, k):
+
+   """
+   The efficient way to solve this problem would be to visualize each contiguous subarray as a sliding window of ‘5’ elements. This means that when we move on to the next subarray, we will slide the window by one element. So, to reuse the sum from the previous subarray, we will subtract the element going out of the window and add the element now being included in the sliding window. This will save us from going through the whole subarray to find the sum and, as a result,the algorithm complexity will reduce to O(N).
+   """
+   
+   result = []
+   windowSum, windowStart = 0.0, 0
+
+   for windowEnd in range(len(arr)):
+      
+      windowSum += arr[windowEnd]
+
+      if windowEnd >= k - 1:
+
+         result.append(windowSum / k)
+
+         windowSum -= arr[windowStart]
+
+         windowStart += 1
+         
+   return result
 
 class Test(unittest.TestCase):
    
@@ -45,4 +67,8 @@ class Test(unittest.TestCase):
       print(result)
       assert result == [2.2]
 
+   def test_avg_3(self):
+      result = find_avg_subarry1([1, 3, 2, 6, -1, 4, 1, 8, 2], 5)
+      assert result == [2.2, 2.8, 2.4, 3.6, 2.8]
+      
 unittest.main(verbosity=2)
