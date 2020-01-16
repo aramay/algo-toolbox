@@ -23,6 +23,24 @@ import unittest
 import math
 
 def smallest_subarray_with_given_sum(arr, s):
+
+   """
+   Time Complexity #
+
+   The time complexity of the above algorithm will be 
+
+   O(N). The outer for loop runs for all elements and the inner while loop processes each element only once, therefore the time complexity of the algorithm will be 
+
+   O(N+N) which is asymptotically equivalent to 
+
+   O(N).
+
+   Space Complexity #
+
+   The algorithm runs in constant space 
+
+   O(1).
+   """
    window_sum = 0
    window_start = 0
    min_length = math.inf
