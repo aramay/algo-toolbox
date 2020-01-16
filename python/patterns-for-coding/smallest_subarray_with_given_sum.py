@@ -20,27 +20,37 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 """
 
 import unittest
+import math
 
 def smallest_subarray_with_given_sum(arr, s):
    window_sum = 0
-   windows_start = 0
-   min_length = 0
+   window_start = 0
+   min_length = math.inf
 
-   for windows_end in range(len(arr)):
+   for window_end in range(len(arr)):
       
-      window_sum += arr[windows_end]
+      window_sum += arr[window_end]
 
       while window_sum >= s:
-         pass
+         min_length = min(min_length, window_end - window_start + 1)
+
+         window_sum -= arr[window_start]
+
+         window_start += 1
    
-   return window_sum
+   return min_length
 
 class Test(unittest.TestCase):
 
    def test_smallest_subarray_with_given_sum(self):
       result = smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], s=7)
-
+      print("result ", result)
       assert result == 2
 
+   def test_smallest_subarray_with_given_sum1(self):
+      result = smallest_subarray_with_given_sum([2, 1, 5, 2, 8], s=8)
 
-unittest.main(verbosity=2)
+      assert result == 8
+
+
+unittest.main(verbosity=3)
