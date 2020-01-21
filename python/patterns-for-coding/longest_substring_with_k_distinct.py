@@ -20,7 +20,22 @@ Explanation: The longest substrings with no more than '3' distinct characters ar
 import unittest
 
 def longest_substring_with_k_distinct(str, k):
-   pass
+   result = {}
+
+   window_start = 0
+   max_length = 0
+
+   for window_end in range(len(str)):
+      right_chr = str[window_end]
+
+      if right_chr in chr_frequency:
+         chr_frequency[right_chr] += 1
+      chr_frequency[right_chr] = 0
+
+   for chr in str:
+      if chr in result:
+         result[chr] += 1
+      result = chr
 
 
 class Test(unittest.TestCase):
