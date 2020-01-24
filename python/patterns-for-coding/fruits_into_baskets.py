@@ -22,19 +22,38 @@ import unittest
 def fruits_into_baskets(fruits):
    window_start = 0
    fruit_frequency = {}
+   max_length = 0
 
    for window_end in range(len(fruits)):
       right_fruit = fruits[window_end]
 
       if right_fruit not in fruit_frequency:
          fruit_frequency[right_fruit] = 0
-      fruit_frequncy[right_fruit] += 1
+      fruit_frequency[right_fruit] += 1
 
-      while
+      while len(fruit_frequency) > 2:
+         left_fruit = fruits[window_start]
+
+         fruit_frequency[left_fruit] -= 1
+
+         if fruit_frequency[left_fruit] == 0:
+            del fruit_frequency[left_fruit]
+
+         window_start += 1
+
+      max_length = max(max_length, window_end-window_start + 1)
+
+   return max_length
+
+
+
 
 
 class Test(unittest.TestCase):
-   pass
+   def test_fruits_into_baskets(self):
+      result = fruits_into_baskets(fruits=['A', 'B', 'C', 'A', 'C'])
 
+      print(result)
+      assert result == 3
 
 unittest.main(verbosity=2)
