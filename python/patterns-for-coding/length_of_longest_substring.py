@@ -36,7 +36,7 @@ def len_of_longest_sustring(str, k):
       count = window_end - window_start + 1 - max_repeat_letter_count
 
       if (count) > k:
-         left_char = frequency_map[window_start]
+         left_char = str[window_start]
 
          frequency_map[left_char] -= 1
          window_start += 1
@@ -49,8 +49,9 @@ def len_of_longest_sustring(str, k):
 class Test(unittest.TestCase):
    def test_len_of_longest_sustring(self):
       result = len_of_longest_sustring(str="aabccbb", k=2)
+      print("result ", result)
 
-      assert result == 2
+      assert result == 5
 
 
 unittest.main(verbosity=2)
