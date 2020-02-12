@@ -17,11 +17,30 @@ Explanation: The three anagrams of the pattern in the given string are "bca", "c
 """
 import unittest
 
-def find_string_anagram():
-   pass
+def find_string_anagram(str, pattern):
+   window_start, matched = 0,0
+   chr_frequency = {}
+
+   for char in pattern:
+      if char not in chr_frequency:
+         chr_frequency[char] = 0
+      chr_frequency[char] += 1
+
+   for window_end in range(len(str)):
+      right_chr = str[window_end]
+
+      if right_chr in chr_frequency:
+         chr_frequency[right_chr] -= 1
+
+         if chr_frequency[right_chr] == 0:
+            matched += 1
+
 
 
 class Test(unittest.TestCase):
-   pass
+   def test_find_string_anagram(self):
+      
+      find_string_anagram("ppqp", "pq")
+
 
 unittest.main(verbosity=2)
