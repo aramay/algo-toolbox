@@ -30,10 +30,54 @@ Explanation: No permutation of the pattern is present in the given string as a s
 import unittest
 
 def find_permutation(str, pattern):
-   pass
+   window_start, matched = 0 , 0
+   chr_frequency = {}
+
+   for chr in pattern:
+      if chr not in chr_frequency:
+         chr_frequency[chr] = 0
+      chr_frequency[chr] += 1
+
+   for window_end in range(len(str)):
+      right_chr = str[window_end]
+
+      if right_chr in chr_frequency:
+         chr_frequency[right_chr] -= 1
+      
+         if chr_frequency[right_chr] == 0:
+            matched += 1
+      
+      if matched == len(chr_frequency):
+         return True
+
+      #shrink the window
+
+      if window_end > len(pattern) -1:
+         
+         left_chr = str[window_start]
+         window_start += 1
+
+         if left_chr in chr_frequency:
+            
+            if chr_frequency[left_chr] == 0:
+               matched -= 1
+            
+            chr_frequency[left_chr] += 1
+
+   return False
+
+
 
 
 class Test(unittest.TestCase):
-   pass
+   def test_find_permutation1(self):
+      result = find_permutation(str="oidbcaf", pattern="abc")
+
+      assert result == True
+
+   def test_find_permutation2(self):
+      result = find_permutation(str="odicf", pattern="dc")
+
+      assert result == False
 
 unittest.main(verbosity=2)
