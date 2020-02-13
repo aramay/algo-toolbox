@@ -20,6 +20,7 @@ import unittest
 def find_string_anagram(str, pattern):
    window_start, matched = 0,0
    chr_frequency = {}
+   indexes = []
 
    for char in pattern:
       if char not in chr_frequency:
@@ -34,13 +35,28 @@ def find_string_anagram(str, pattern):
 
          if chr_frequency[right_chr] == 0:
             matched += 1
+            indexes.append(window_end)
+
+      if window_end > len(pattern) - 1:
+         left_chr = str[window_start]
+         window_start += 1
+
+         if left_chr in chr_frequency:
+            
+            if chr_frequency[left_chr] == 0:
+               matched -= 1
+
+            chr_frequency[left_chr] += 1
+
+   return []
 
 
 
 class Test(unittest.TestCase):
    def test_find_string_anagram(self):
       
-      find_string_anagram("ppqp", "pq")
+      result = find_string_anagram("ppqp", "pq")
+      assert result == [1, 2]
 
 
 unittest.main(verbosity=2)
