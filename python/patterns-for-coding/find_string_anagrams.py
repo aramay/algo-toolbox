@@ -35,7 +35,9 @@ def find_string_anagram(str, pattern):
 
          if chr_frequency[right_chr] == 0:
             matched += 1
-            indexes.append(window_end)
+            
+      if matched == len(chr_frequency):
+         indexes.append(window_start)
 
       if window_end > len(pattern) - 1:
          left_chr = str[window_start]
