@@ -12,7 +12,7 @@ def find_peek(input):
    if len(input) == 0:
       return None
 
-   if input[mid_point] >= input[mid_point - 1] and input[mid_point] >= input[mid_point + 1]:
+   if input[mid_point - 1] <= input[mid_point] and input[mid_point] >= input[mid_point + 1]:
       return input[mid_point]
    
 
