@@ -7,7 +7,7 @@ import unittest
 
 def find_peek(input):
    
-   mid_point = (len(input) - 1) // 2
+   mid_point = len(input) // 2
 
    if len(input) == 0:
       return None
@@ -30,7 +30,7 @@ def find_peek(input):
       if peek:
          return peek
 
-   elif input[mid_point] >= input[mid_point + 1]:
+   elif input[mid_point] <= input[mid_point + 1]:
       print("look right")
 
       peek = find_peek(input[mid_point:len(input)])
