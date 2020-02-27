@@ -25,8 +25,6 @@ def find_peek(input):
 
       peek = find_peek(input[0:mid_point])
 
-      # peek = peek if (find_peek(peek)) else None
-      # peek = find_peek(input[0:mid_point])
       if peek:
          return peek
 
@@ -39,9 +37,6 @@ def find_peek(input):
          return peek
 
 
-
-
-
 class Test(unittest.TestCase):
    def test_find_peek(self):
       result = find_peek([6,70,4,3,2,1,4,5])
@@ -49,7 +44,18 @@ class Test(unittest.TestCase):
    
    def test_find_peek1(self):
       result = find_peek([1,2,3,4,5,6,7,8,90])
+      print("result ", result)
       assert result == 90
+   
+   def test_find_peek2(self):
+      result = find_peek([8,90])
+      print("result ", result)
+      assert result == 90
+   
+   def test_find_peek3(self):
+      result = find_peek([80,9])
+      print("result ", result)
+      assert result == 80
 
    
 
