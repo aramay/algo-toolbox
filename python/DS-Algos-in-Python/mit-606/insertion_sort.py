@@ -26,6 +26,12 @@ class Test(unittest.TestCase):
       result = i_sort([3,2,1])
 
       assert result == [1,2,3]
+   
+   def test_i_sort1(self):
+
+      result = i_sort([3,2,1,5,6,7,9,4,8])
+
+      assert result == [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 unittest.main(verbosity=2)
