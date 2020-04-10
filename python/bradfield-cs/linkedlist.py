@@ -27,7 +27,7 @@ class UnorderedList(object):
 class TestNode(unittest.TestCase):
 
    def setUp(self):
-      self.oL = UnorderedList()
+      self.un_oL = UnorderedList()
 
    def test_node_class(self):
       x = Node(43, None)
@@ -36,29 +36,29 @@ class TestNode(unittest.TestCase):
 
    def test_count_before_adding(self):
 
-      assert self.oL._count == 0
+      assert self.un_oL._count == 0
 
 
    def test_count_after_adding(self):
 
-      oL = self._add_nodes()
+      un_oL = self._add_nodes()
 
-      self._print_linked_list(oL)
+      self._print_linked_list(un_oL)
 
-      assert oL._count == 5
+      assert un_oL._count == 5
    
    def _add_nodes(self):
 
-      print("\n Count before adding nodes ", self.oL._count)
+      print("\n Count before adding nodes ", self.un_oL._count)
 
       L = [31, 77, 17, 93]
 
       for x in L:
-         self.oL.add(x)
+         self.un_oL.add(x)
 
-      return self.oL
+      return self.un_oL
 
-      # print("\n Count after adding nodes ", oL._count)
+      # print("\n Count after adding nodes ", un_oL._count)
 
    def _print_linked_list(self, linked_list):
 
@@ -70,10 +70,10 @@ class TestNode(unittest.TestCase):
          current = current.next
 
       #this loop also works - but implementation is not ideal
-      # while oL.head is not None:
-      #    print("\n", oL.__dict__)
+      # while un_oL.head is not None:
+      #    print("\n", un_oL.__dict__)
 
-      #    oL.head = oL.head.next
+      #    un_oL.head = un_oL.head.next
 
 
 unittest.main(verbosity=2)
