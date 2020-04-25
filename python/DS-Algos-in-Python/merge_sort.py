@@ -9,8 +9,8 @@ def merge_sort(input):
    left = input[:h]
    right = input[h:]
 
-   merge_sort(left)
-   merge_sort(right)
+   left = merge_sort(left)
+   right = merge_sort(right)
 
    return merge(left, right)
 
