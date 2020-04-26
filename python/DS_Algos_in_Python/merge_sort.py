@@ -1,5 +1,5 @@
 import unittest
-# from algo-toolbox.python.DS-Algos-in-Python.merge_sorted_l.py import merge Fix directory names
+from algo-toolbox.python.DS_Algos_in_Python.merge_sorted_l.py import merge
 
 def merge_sort(input):
    if len(input) <= 1:

@@ -140,6 +140,20 @@ LinkedList.prototype.printForward = function(){
 
 }
 
+LinkedList.prototype.printBackward = function(){
+  reverse(this.head);
+}
+
+function reverse(node) {
+    var temp = new LinkedList()
+  if(node === null) {
+    return;
+  }
+    reverse(node.next);
+    temp.append(node)
+    console.log(node);
+}
+
 
 var testCase = new LinkedList();
 testCase.append(10);
@@ -157,3 +171,4 @@ testCase.remove(2);
 
 console.log(testCase)
 testCase.printForward()
+testCase.printBackward()

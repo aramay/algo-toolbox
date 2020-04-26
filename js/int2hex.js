@@ -36,8 +36,7 @@ function int2hex(int){
     var hexValue = "",
         remainder, 
         firstDigit,
-        secondDigit;
-    
+i    
     
     if (int < 16){
         

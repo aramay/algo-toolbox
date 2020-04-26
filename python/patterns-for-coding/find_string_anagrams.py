@@ -37,7 +37,7 @@ def find_string_anagram(str, pattern):
             matched += 1
             
       if matched == len(chr_frequency):
-         indexes.append(window_start)
+         indexes.append(window_end)
 
       if window_end > len(pattern) - 1:
          left_chr = str[window_start]
@@ -50,7 +50,7 @@ def find_string_anagram(str, pattern):
 
             chr_frequency[left_chr] += 1
 
-   return []
+   return indexes
 
 
 
@@ -58,6 +58,7 @@ class Test(unittest.TestCase):
    def test_find_string_anagram(self):
       
       result = find_string_anagram("ppqp", "pq")
+      print(result)
       assert result == [1, 2]
 
 

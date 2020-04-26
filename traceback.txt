@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/abid/anaconda3/lib/python3.6/site-packages/pudb/__init__.py", line 146, in runscript
+    dbg._runscript(mainpyfile)
+  File "/Users/abid/anaconda3/lib/python3.6/site-packages/pudb/debugger.py", line 468, in _runscript
+    self.run(statement)
+  File "/Users/abid/anaconda3/lib/python3.6/bdb.py", line 434, in run
+    exec(cmd, globals, locals)
+  File "<string>", line 1, in <module>
+  File "python/2048-game.py", line 82, in <module>
+    result = merge([2,0,2,4])
+  File "python/2048-game.py", line 41, in merge
+    if out_list[pivot1] == out_list[pivot2]:
+IndexError: list index out of range

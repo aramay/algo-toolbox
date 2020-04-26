@@ -70,5 +70,5 @@ class Test(unittest.TestCase):
    def test_avg_3(self):
       result = find_avg_subarry1([1, 3, 2, 6, -1, 4, 1, 8, 2], 5)
       assert result == [2.2, 2.8, 2.4, 3.6, 2.8]
-      
+
 unittest.main(verbosity=2)

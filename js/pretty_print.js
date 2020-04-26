@@ -36,7 +36,7 @@ You will be given A as an argument to the function you need to implement, and yo
 function prettyPrint (args) {
    // console.log(args)
 
-   if(args <= 0){
+   if(args < 0){
 	        return []
 	    }
 
@@ -142,5 +142,5 @@ while (topRow < btmRow && leftCol < rightCol) {
 
 
 var input = 3
-console.log(prettyPrint(input))
-console.log(prettyPrint(0))
+// console.log(prettyPrint(input))
+console.log(prettyPrint(3))
