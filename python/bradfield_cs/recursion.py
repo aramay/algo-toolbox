@@ -16,3 +16,14 @@
 # -> Think about how iteration turns into recursion
 """
 
+import unittest
+
+def sum_list_of_nums(numbers):
+   pass
+
+
+class TestSumListOfNums(unittest.TestCase):
+   pass
+
+
+unittest.main(verbosity=2)
