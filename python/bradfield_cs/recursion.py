@@ -21,7 +21,7 @@ import unittest
 def sum_list_of_nums(numbers):
    
    if len(numbers) == 0:
-      return 
+      return 0
 
    return numbers[0] + sum_list_of_nums(numbers[1:])
 
