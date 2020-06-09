@@ -19,11 +19,20 @@
 import unittest
 
 def sum_list_of_nums(numbers):
-   pass
+   
+   if len(numbers) == 0:
+      return 
+
+   return numbers[0] + sum_list_of_nums(numbers[1:])
+
 
 
 class TestSumListOfNums(unittest.TestCase):
-   pass
+   
+   def test_sum_list1(self):
+      result = sum_list_of_nums([1,2,3,4,5])
+
+      assert result == 15
 
 
 unittest.main(verbosity=2)
