@@ -59,5 +59,11 @@ class Test(unittest.TestCase):
 
       print(result)
       assert result == 3
+   
+   def test_fruits_into_baskets1(self):
+      result = fruits_into_baskets(fruits=['A', 'B', 'C', 'B', 'B', 'C'])
+
+      print(result)
+      assert result == 5
 
 unittest.main(verbosity=2)
