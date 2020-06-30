@@ -20,7 +20,34 @@ This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
 import unittest
 
 def fruits_into_baskets(fruits):
+   window_start = 0
+   fruits_basket = {}
+   max_length = 0
+
+   for window_end in range(len(fruits)):
+      right_fruit = fruits[window_end]
+
+      if right_fruit not in fruits_basket:
+         fruits_basket[right_fruit] = 0
+      fruits_basket[right_fruit] += 1
+
+
+
+      while len(fruits_basket) > 2:
+         left_fruit = fruits[window_start]
+
+         if left_fruit in fruits_basket:
+            fruits_basket[left_fruit] -= 1
+         
+         if fruits_basket[left_fruit] == 0:
+            del fruits_basket[left_fruit]
+
+         window_start += 1
+
+      max_length = max(max_length, window_end - window_start + 1)
    
+   return max_length
+
 
 
 
