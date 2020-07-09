@@ -22,7 +22,24 @@ Explanation: Longest substrings without any repeating characters are "abc" & "cd
 import unittest
 
 def non_repeat_substring(str):
-   
+   win_start_index = 0
+   non_repeat_chr = {}
+   max_len = 0
+
+   for win_end_index in range(len(str)):
+      right_chr = str[win_end_index]
+      
+      if right_chr in non_repeat_chr:
+         win_start_index = max(win_start_index, non_repeat_chr[right_chr] + 1)
+
+      non_repeat_chr[right_chr] = win_end_index
+
+      max_len = max(win_start_index, win_end_index + 1)
+
+   print(non_repeat_chr) 
+   print("max_len ", max_len)
+
+   return max_len
 
 
 class Test(unittest.TestCase):
