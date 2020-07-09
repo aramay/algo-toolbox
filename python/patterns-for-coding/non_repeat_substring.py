@@ -34,7 +34,9 @@ def non_repeat_substring(str):
 
       non_repeat_chr[right_chr] = win_end_index
 
-      max_len = max(win_start_index, win_end_index + 1)
+      max_len = max(max_len, 
+                    win_end_index,
+                    win_start_index + 1)
 
    print(non_repeat_chr) 
    print("max_len ", max_len)
