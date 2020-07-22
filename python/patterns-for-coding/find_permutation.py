@@ -52,7 +52,7 @@ def find_permutation(str, pattern):
 
       #shrink the window
 
-      if window_end > len(pattern) -1:
+      if window_end >= len(pattern) -1:
          
          left_chr = str[window_start]
          window_start += 1
