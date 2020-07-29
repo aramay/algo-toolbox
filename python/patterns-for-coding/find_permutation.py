@@ -11,8 +11,7 @@ bca
 cab
 cba
 If a string has ‘n’ distinct characters it will have 
-n
-!
+n!
 n! permutations.
 
 Example 1:
