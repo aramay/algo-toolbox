@@ -26,7 +26,21 @@ Explanation: No substring in the given string has all characters of the pattern.
 """
 
 def find_substring(input:str, pattern:str) -> str:
-   pass
+   window_end = 0, chr_frequency = {}
+
+   for chr in pattern:
+      if chr not in chr_frequency:
+         chr_frequency[chr] = 1
+      chr_frequency[chr] = 0
+   
+   for window_start in pattern:
+      left_chr = pattern[window_end]
+
+      if left_chr not in chr_frequency:
+         chr_frequency[left_chr] += 1
+      chr_frequency[left_chr] = 0
+
+
 
 
 class TestSubstring(unittest.TestCase):
