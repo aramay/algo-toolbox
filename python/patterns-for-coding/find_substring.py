@@ -21,12 +21,10 @@ Input: String="adcad", Pattern="abc"
 Output: ""
 Explanation: No substring in the given string has all characters of the pattern.
 
-
-
 """
 
 def find_substring(input:str, pattern:str) -> str:
-   window_end = 0
+   window_start = 0
    chr_frequency = {}
    matched = 0
    min_len = len(input) + 1
@@ -37,18 +35,19 @@ def find_substring(input:str, pattern:str) -> str:
          chr_frequency[chr] = 0
       chr_frequency[chr] += 1
    
+   # Shrink the window if we can, finish as soon as we remove a matched character
    for window_end in range(len(input)):
       right_chr = input[window_end]
 
       if right_chr in chr_frequency:
          chr_frequency[right_chr] -= 1
          #count every matching chr
-         if chr_frequency[right_chr] > 0:
+         if chr_frequency[right_chr] >= 0:
             matched += 1
 
       while matched == len(pattern):
-         if min_len > windowd_end - window_start + 1:
-            min_len = window_end - windows_start + 1
+         if min_len > window_end - window_start + 1:
+            min_len = window_end - window_start + 1
 
             sub_str_stat = window_start
 
@@ -61,13 +60,13 @@ def find_substring(input:str, pattern:str) -> str:
             therefore we'll decrement the matched count only when a 
             useful occurrence of a matched character is going out of the window"""
             
-            if char_frequency[left_char] == 0:
+            if chr_frequency[left_chr] == 0:
                matched -= 1
 
             chr_frequency[left_chr] += 1
 
    if min_len > len(input):
-      return "Empty"
+      return ""
 
    return input[sub_str_stat:sub_str_stat + min_len]
 
@@ -78,7 +77,19 @@ class TestSubstring(unittest.TestCase):
       result = find_substring(input="adcad", pattern="abc")
 
       print(" result =>", result)
+      assert result == ""
+   
+   def test_substring2(self):
+      result = find_substring(input="aabdec", pattern="abc")
+
+      # print(" result =>", result)
       assert result == "abdec"
+   
+   def test_substring3(self):
+      result = find_substring(input="abdabca", pattern="abc")
+
+      # print(" result =>", result)
+      assert result == "abc"
 
 
 unittest.main(verbosity=2)
