@@ -25,9 +25,9 @@ def find_word_concat(input:str, words:str) -> str:
    for word in words:
       if word not in word_frequency:
          word_frequency[word] = 0
-      word_frequency[word] = 0
+      word_frequency[word] += 1
 
-   word_len = len(word[0])
+   word_len = len(words[0])
    words_count = len(words)
 
    for i in range((len(input) - words_count * word_len) + 1):
@@ -57,8 +57,6 @@ def find_word_concat(input:str, words:str) -> str:
             result_indices.append(i)
 
 
-
-
    return result_indices
 
 
@@ -67,6 +65,7 @@ class TestWordConcat(unittest.TestCase):
    def test_word_count(self):
       result = find_word_concat(input="catfoxcat", words=["cat", "fox"])
 
+      print ("result => ", result)
       assert result == [0, 3]
 
 unittest.main(verbosity=2)
