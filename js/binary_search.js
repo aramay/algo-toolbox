@@ -32,14 +32,40 @@ function BSearch(input, targetValue) {
 
 BSearch.prototype.search = function () {
   // pick the middle point of input
-  
-  let midPoint = Math.floor(this.input.length / 2)
-//   let result = null
-  let totalLen = this.input.length
+  let min = 0
+  let max = this.input.length - 1
 
-  let ans;
-  
-  function findValue(args, midPoint, targetValue){
+  // let midPoint = Math.floor(this.input.length / 2)
+//   let result = null
+  // let totalLen = this.input.length
+
+  let midPoint = Math.floor((min + max) / 2);
+
+  function findValue (args, min, max, midPoint, targetValue){
+    if (min > max){
+      return null
+    }
+    else if (targetValue === args[midPoint]){
+      return midPoint
+    }
+    else if(targetValue > args[midPoint]){
+
+      min = midPoint + 1
+      midPoint = Math.floor((min + max) / 2)
+      return findValue(args, min, max, midPoint, targetValue)
+
+    }
+    else if (targetValue < args[midPoint]){
+      max = midPoint - 1
+      midPoint = Math.floor((min + max) / 2)
+      return findValue(args, min, max, midPoint, targetValue)
+    }
+    
+    // return null
+  }
+  return findValue(this.input, min, max, midPoint, this.targetValue)
+}
+  /*function findValue(args, midPoint, targetValue){
     if (targetValue === args[midPoint]){
       
       return ans = {'midPoint' : midPoint, 'targetValue':targetValue}
@@ -65,9 +91,9 @@ BSearch.prototype.search = function () {
   return ans
   }
   
-  return findValue(this.input, midPoint, this.targetValue)
+  // return findValue(this.input, midPoint, this.targetValue)
 
-}
+}*/
 
 BSearch.prototype.returnIndex = function () {
   let result = this.search()
@@ -87,20 +113,37 @@ BSearch.prototype.returnIndex = function () {
 
 function assertEquals(actual, expected, testName){
   if (actual === expected){
-    console.log('passed')
+    console.log(`Passed ${testName}`)
   }
   else {
     console.log(`FAILED! [${testName}] Expected ${expected} but got ${actual}`)
   }
 }
-let input1 = [1, 3, 16, 22, 31, 33, 34, 101]
-let targetValue1 = 99
+
+// Test 1
+
+let input = [1, 3, 16, 22, 31, 33, 34]
+let targetValue = 31
+
+let actual = new BSearch(input, targetValue)
+
+let expected = 4 // index of value
+
+let result = actual.result
+
+assertEquals(result, expected, "binarySearch - index of value 31 is found -> 4")
+
+
+
+
+let input1 = [2, 3, 16, 22, 31, 33, 34, 101]
+let targetValue1 = 1
 
 let actual1 = new BSearch(input1, targetValue1)
 
 let expected1 = null // index of value
 
-let result1 = actual1.returnIndex()
+let result1 = actual1.result
 
 assertEquals(result1, expected1, "binarySearch - value 99 not found -> index is null")
 
