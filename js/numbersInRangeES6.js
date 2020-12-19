@@ -15,7 +15,7 @@ class NumbersInRange {
         return n
       }
     }
-    return this._result
+   //  return this._result
   }
 }
 
@@ -42,5 +42,6 @@ let numbersInRange = new NumbersInRange(input, low, high)
 
 console.log(numbersInRange._low)
 console.log(numbersInRange.numbersInRange())
+console.log(numbersInRange._result)
 
 assertEquals(numbersInRange.numbersInRange, expected, `filter numbers in range`)
