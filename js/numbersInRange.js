@@ -9,24 +9,29 @@ function NumbersInRange(input, low, high) {
 NumbersInRange.prototype.getNumbersInRange = function () {
   let temp = this.input
 
-  console.log("low ", this.low)
-  
-   this.result = temp.filter(function (n, index) {
+//   console.log("low ", this.low)
+  this.result = temp.filter(cbf)
+
+  function cbf(n, index){
+   NumbersInRange.call(this, low, high)
+   console.log(Array.from(arguments))
+
+ //   console.log(this.NumbersInRange)
+   if(n >= low && n <= high) {
+      return n
+   }
+
+  }
+   /*this.result = temp.filter(function (n, index) {
 
       NumbersInRange.call(this, low, high)
 
      if(n > low && n < high){
         return n
      }
-  })
+  })*/
 
-//   function cbf(n, index){
-//      console.log(this.NumbersInRange)
-//      if(n > this.low && this.high){
-//         return n
-//      }
-
-//   }
+   
   // this implementation fails test - cuz it needs a short circut operator
   /*for (let i = 0; i < temp.length; i++) {
     if (temp[i] > this.low){
@@ -40,7 +45,7 @@ NumbersInRange.prototype.getNumbersInRange = function () {
 }
 
 function assertEquals(actual, expected, testName) {
-  console.log(Array.from(arguments))
+//   console.log(Array.from(arguments))
   
   let isEqualLen = actual.length === expected.length
   
@@ -59,7 +64,7 @@ let high = 10
 let expected = [3, 4, 5, 2]
 
 let actual = new NumbersInRange(input, low, high)
-console.log(actual)
+// console.log(actual)
 actual.getNumbersInRange()
 
 let result = actual.result
