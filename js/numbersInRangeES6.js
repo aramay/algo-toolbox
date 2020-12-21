@@ -9,13 +9,19 @@ class NumbersInRange {
   }
 
   numbersInRange () {
-    this._result = this._input.filter(cbf)
+    this._result = this._input.filter((currentValue) => {
+      if (currentValue >= low && currentValue <= high) {
+        return currentValue
+      }
+    })
+
+   // this is using a function call back
+    /*this._result = this._input.filter(cbf)
     function cbf (n) {
       if (n >= low && n <= high) {
         return n
       }
-    }
-   //  return this._result
+    } */
   }
 }
 
