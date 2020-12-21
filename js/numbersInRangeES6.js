@@ -39,9 +39,10 @@ let high = 10
 let expected = [3, 4, 5, 2]
 
 let numbersInRange = new NumbersInRange(input, low, high)
+numbersInRange.numbersInRange()
 
 console.log(numbersInRange._low)
 console.log(numbersInRange.numbersInRange())
 console.log(numbersInRange._result)
 
-assertEquals(numbersInRange.numbersInRange, expected, `filter numbers in range`)
+assertEquals(numbersInRange._result, expected, `filter numbers in range`)
