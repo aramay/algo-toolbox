@@ -8,19 +8,21 @@ function mergeSort (arr) {
       left = arr.slice(0, midIndex),
       right = arr.slice(midIndex, arr.length);
   
-  var sortedLeft = mergeSort(left);
-  var sortedRight = mergeSort(right);
+  // var sortedLeft = mergeSort(left);
+  // var sortedRight = mergeSort(right);
+  mergeSort(left);
+  mergeSort(right);
 
-  var result = merge(sortedLeft, sortedRight)
+  // var result = merge(sortedLeft, sortedRight)
 
-  return result;
+  // return result;
 
-//   return merge(mergeSort(left), (right))
-//   merge(mergeSort(left), (right))
+  // return merge(mergeSort(left), (right))
+  return merge(left, right)
 
 }
 
-console.log(mergeSort([6,3,7,567,2,6,4,2]));
+
 
 function merge (left, right) {
   var result = [],
@@ -53,6 +55,7 @@ function merge (left, right) {
     // return result;
 }
 
+console.log(mergeSort([6,3,7,567,2,6,4,2]));
 
 
 
@@ -62,8 +65,7 @@ function merge (left, right) {
 
 
 
-
-
+/*
 // 3rd try
 
 function mergeSort (arr) {
@@ -81,7 +83,7 @@ function mergeSort (arr) {
 
   var result = merge(left, right)
 
-  console.log(result)
+  // console.log(result)
 
 //   return merge(mergeSort(left), (right))
 //   merge(mergeSort(left), (right))
@@ -124,12 +126,12 @@ function merge (left, right) {
           index1++;
         }
     }
-    console.log(result)
+    // console.log(result)
     // return result;
 }
 
 
-
+*/
 
 
 // 1st try
@@ -227,4 +229,4 @@ function merge (left, right) {
 // }
 
 // console.log(mergesort([77 ,99 ,44 ,55 ,22 ,88 ,11 ,0 ,66 ,33]))
-console.log(mergeSort([77,99 , 44 , 55 , 22,88,11 , 0 , 66 , 33]))
+// console.log(mergeSort([77,99 , 44 , 55 , 22,88,11 , 0 , 66 , 33]))

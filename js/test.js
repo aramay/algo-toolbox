@@ -1,92 +1,22 @@
-// isPalindrome
-//
-// input: string
-// output: boolean
-//
-// input: 'racecar'
-// output: true
-//
-// input: 'outco'
-// output: false
-
-// function isPalindrome(input){
-
-//   console.log(input);
-
-//   var i = 0;
-//   var x = input.length - 1;
-
-//   while (i <= x ){
-
-//     if (input[i] === input[x]){
-
-//       i ++;
-//       x --;
-
-
-//     } else {
-//       return false;
-//     }
-//   }
-
-//   return true;
-
-
-// }
-
-
-
-// console.log(isPalindrome("racecar"));
-// console.log(isPalindrome(""));
-
-
-
-
-
-
-
-
-
-
-// anagramPalindrome
-//
-// input: string
-// output: boolean
-//
-// input: 'carrace' ==> 'racecar' ==> 'carerac'
-// output: true
-//
-// input: 'coout'
-// output: false
-
-function anagramPalindrome(input){
-
-  var checkCount = {};
-
-  for(var i = 0; i<input.length; i++){
-
-    if (checkCount.hasOwnProperty(input[i])){
-
-      checkCount[input[i]] += 1;
-    } else {
-
-      checkCount[input[i]] = 1;
-    }
-
+const pipe = (arrOfFuncs, value) => {
+  let result = ''
+  
+  let lastValue = arrOfFuncs[0](value)
+  
+  
+  for (let i=1; i < arrOfFuncs.length; i++){
+    let cb = arrOfFuncs[i]
+    lastValue = cb(lastValue)
+    result = lastValue
   }
+  
+  console.log(result)
 
-  // check for how many odd counts
-  // if it's less than 2, return true, otherwise, return false
+};
 
-  return checkCount;
-}
-
-
-console.log(anagramPalindrome("bbbcarrace"));
-
-// eracecare
-
-// rcaarce
-// aarcrec
-// racecar -> bbracecarbb --> ccararbbebb
-// coout --> outco --> touoc
+/*** Uncomment these to check your work! ***/
+const capitalize = str => str.toUpperCase(); // CAT
+const addLowerCase = str => str + str.toLowerCase(); // 
+const repeat = str => str + str;
+const capAddlowRepeat = [capitalize, addLowerCase, repeat];
+console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
