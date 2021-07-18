@@ -16,14 +16,14 @@ class Node():
       if self.leftChild is None:
          self.leftChild = child
       else:
-         child.leftChild = self.leftChild
+         # child.leftChild = self.leftChild
          self.leftChild = child
 
 class Test(unittest.TestCase):
    def test_create_node(self):
       x = Node(3)
 
-      print("\n", x.__dict__)
+      # print("\n", x.__dict__)
 
    def test_insert_left_child(self):
       root = Node(4)
@@ -33,12 +33,9 @@ class Test(unittest.TestCase):
       print("\n", root.leftChild)
 
       root.insert_left(Node("left node"))
+      root.insert_left(Node("left node2"))
 
-      print("\n", root.__dict__)
-
-
-
-
+      print("\n", root.leftChild.__dict__)
 
 
 

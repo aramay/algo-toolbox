@@ -1,5 +1,6 @@
 import unittest
-from algo-toolbox.python.DS_Algos_in_Python.merge_sorted_l.py import merge
+# from python.DS_Algos_in_Python.merge_sorted_l.py import merge_lists
+from .merge_sorted_l.py import merge_lists
 
 def merge_sort(input):
    if len(input) <= 1:
@@ -12,8 +13,9 @@ def merge_sort(input):
    left = merge_sort(left)
    right = merge_sort(right)
 
-   return merge(left, right)
+   return merge_lists(left, right)
 
+"""
 def merge(list1, list2):
 
     # Combine the sorted lists into one large sorted list
@@ -58,7 +60,7 @@ def merge(list1, list2):
         current_i += 1
 
     return merged_l
-
+"""
 class TestMergeSort(unittest.TestCase):
    
    def test_list1(self):

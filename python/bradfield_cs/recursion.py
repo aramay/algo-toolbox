@@ -25,6 +25,23 @@ def sum_list_of_nums(numbers):
 
    return numbers[0] + sum_list_of_nums(numbers[1:])
 
+def sum_list_of_nums2(numbers, counter, sum):
+   """
+   write recursive function in increasing order
+   """
+   # counter = counter
+   
+   print("in 2nd func .. ")
+   if counter == len(numbers):
+      return sum
+
+   print(numbers[counter])
+
+   sum += numbers[counter] 
+
+   return sum_list_of_nums2(numbers, counter + 1, sum)
+
+
 
 
 class TestSumListOfNums(unittest.TestCase):
@@ -32,6 +49,12 @@ class TestSumListOfNums(unittest.TestCase):
    def test_sum_list1(self):
       result = sum_list_of_nums([1,2,3,4,5])
 
+      assert result == 15
+   
+   def test_sum_list2(self):
+      result = sum_list_of_nums2([1,2,3,4,5], 0, 0)
+
+      print("sum ", result)
       assert result == 15
 
 

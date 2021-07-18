@@ -1,4 +1,13 @@
+"""
+6.4.2 Nodes and References
+194 Chapter6. TreesandTreeAlgorithms
+BOOK: Problem Solving with Algorithms and Data Structures
+Release 3.0
+Brad Miller, David Ranum
+"""
 import unittest
+
+from collections import deque 
 
 class Node():
    
@@ -20,12 +29,12 @@ class BST():
       else:
          self._insert(value, self.root)
 
-   def _insert(self, value, current_node):
+   def _insert(self, value, current_node):   
       if value < current_node.value:
 
          if current_node.leftChild == None:
             current_node.leftChild = Node(value)
-            print ("Value inserted {}".format(value))
+            print ("Value inserted left {}".format(value))
 
          else:
             self._insert(value, current_node.leftChild)
@@ -33,7 +42,7 @@ class BST():
       if value > current_node.value:
          if current_node.rightChild == None:
             current_node.rightChild = Node(value)
-            print ("Value inserted {}".format(value))
+            print ("Value inserted right {}".format(value))
          else:
             self._insert(value, current_node.rightChild)
 
@@ -50,6 +59,47 @@ class BST():
          print("in_order traversal ", root.value)
 
          self.in_order(root.rightChild)
+   
+   def breath_first_search(self, root):
+      
+      result = []
+      q = deque()
+
+      if root is None:
+
+         return None
+      
+      q.append(root)
+
+      print("root ", root.value)
+      
+
+      while len(q) > 0:
+
+         
+         # result.append(item)
+         item = q.popleft()
+
+         result.append(item.value)
+
+         if(item.leftChild is not None):
+            # q.append(root.leftChild)
+            print("leftChild ", item.leftChild.value)
+
+            # self.breath_first_search(item.leftChild)
+
+            q.append(item.leftChild)
+            result.append(item.leftChild.value)
+
+         if(item.rightChild is not None):
+            # q.append(root.rightChild)
+            # self.breath_first_search(item.rightChild)
+            print("rightChild ", item.rightChild.value)
+            q.append(item.rightChild)
+
+            result.append(item.rightChild.value)
+
+      return result
 
 
    # def in_order(self, root):
@@ -73,7 +123,9 @@ tree.insert(7)
 tree.insert(76)
 tree.insert(90)
 
-print (BST().in_order(tree))
+# print (BST().in_order(tree.root))
+
+print(BST().breath_first_search(tree.root))
 
 
 # class Test(unittest.TestCase):

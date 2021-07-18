@@ -21,7 +21,30 @@ import unittest
 
 def len_of_longest_sustring(str, k):
    
-  
+   chr_frequency_map = {}
+   max_len, window_start, max_repeat_letter = 0, 0, 0
+
+   for window_end in range(len(str)):
+      right_chr = str[window_end]
+
+      if right_chr not in chr_frequency_map:
+         chr_frequency_map[right_chr] = 0
+         
+      chr_frequency_map[right_chr] += 1
+
+      max_repeat_letter = max(max_repeat_letter, chr_frequency_map[right_chr])
+
+      if (window_end - window_start + 1 - max_repeat_letter) > k:
+         
+         left_chr = str[window_start]
+         chr_frequency_map[left_chr] -= 1
+
+         window_start += 1
+
+      max_len = max(max_len, window_end - window_start + 1)
+
+   return max_len
+
 
 
 class Test(unittest.TestCase):

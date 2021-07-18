@@ -16,7 +16,7 @@ Explanation: The numbers at index 0 and 2 add up to 11: 2+9=11
 """
 import unittest
 
-def pair_with_target_sum():
+def pair_with_target_sum(int:input, int:target):
    pass
 
 
@@ -25,4 +25,4 @@ class TestPairWithTargetSum(unittest.TestCase):
    def test_pair_with_target_sum(self):
       pass
 
-   unittest.main(verbosity=2)
+unittest.main(verbosity=2)
