@@ -17,8 +17,24 @@ Output: 3
 Explanation: Longest substrings with distinct characters are "abc" & "cde".
  */
 
-const nonRepeatingSubStr = () => {
+const nonRepeatingSubStr = (str) => {
   console.log('func called')
+
+  let winStart = 0,
+      maxLen = 0,
+      charIndexMap = {}
+
+  for( let winEnd = 0; winEnd < str.length; winEnd++) {
+    let rightChar = str[winEnd]
+
+    if(rightChar in charIndexMap) {
+
+      winStart = Math.max(winStart, charIndexMap[rightChar] + 1)
+    }
+    charIndexMap[rightChar] = winEnd
+    maxLen = Math.max(maxLen, winEnd - winStart + 1)
+  }
+  return maxLen
 }
 
 let Input1 = "aabccbb"
