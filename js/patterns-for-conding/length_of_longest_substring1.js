@@ -18,8 +18,36 @@ Explanation: Replace the '0' at index 6, 9, and 10 to have the longest contiguou
 
 const lenOfLongestSubStr = (str, k) => {
   console.log('func called')
+
+  let winStart = 0,
+  maxRepeatLetter = 0,
+  charFrequencyMap = {},
+  maxLen = 0
+
+  for (let winEnd = 0; winEnd < str.length; winEnd++) {
+    let rightChar = str[winEnd]
+
+    if(charFrequencyMap[rightChar] === undefined) {
+      charFrequencyMap = 1
+    } else {
+      charFrequencyMap[rightChar] += 1
+    }
+
+    maxRepeatLetter = Math.max(maxRepeatLetter, charFrequencyMap[rightChar])
+
+    if( (winEnd - winStart + 1 - maxRepeatLetter) > k) {
+      let leftChar = str[winStart]
+
+      charFrequencyMap[leftChar] -= 1
+      winStart += 1
+    }
+    maxLen = Math.max(maxLen, winEnd - winStart + 1)
+  }
+  return maxLen
 }
 
 let Input1 =[0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1]
 let k1 = 2
-lenOfLongestSubStr(Input1, k1)//Output: 6
+let res1 = lenOfLongestSubStr(Input1, k1)//Output: 6
+
+console.log('res1 ', res1)
