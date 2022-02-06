@@ -95,3 +95,32 @@ console.log('res2 ', res2)
 let input3 = "{ [ }"
 let res3 = bracketValidator(input3) // false
 console.log('res3 ', res3)
+
+
+/**
+ * Complexity
+O
+(
+n
+)
+O(n) time (one iteration through the string), and 
+O
+(
+n
+)
+O(n) space (in the worst case, all of our characters are openers, so we push them all onto the stack).
+
+Bonus
+In Ruby, sometimes expressions are surrounded by vertical bars, "|like this|". Extend your validator to validate vertical bars. Careful: there's no difference between the "opener" and "closer" in this case—they're the same character!
+
+What We Learned
+The trick was to use a stack. ↴
+
+It might have been difficult to have that insight, because you might not use stacks that much.
+
+Two common uses for stacks are:
+
+parsing (like in this problem)
+tree or graph traversal (like depth-first traversal)
+So remember, if you're doing either of those things, try using a stack!
+ */
