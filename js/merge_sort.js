@@ -1,13 +1,13 @@
-function mergeSort (arr) {
+function mergeSort(arr) {
   if (arr.length < 2) {
     //   return arr
-      return arr;
-    }
+    return arr;
+  }
 
   var midIndex = Math.floor(arr.length / 2),
-      left = arr.slice(0, midIndex),
-      right = arr.slice(midIndex, arr.length);
-  
+    left = arr.slice(0, midIndex),
+    right = arr.slice(midIndex, arr.length);
+
   // var sortedLeft = mergeSort(left);
   // var sortedRight = mergeSort(right);
   mergeSort(left);
@@ -24,38 +24,38 @@ function mergeSort (arr) {
 
 
 
-function merge (left, right) {
+function merge(left, right) {
   var result = [],
-      index1 = 0,
-      index2 = 0
+    index1 = 0,
+    index2 = 0
 
   while (index1 < left.length && index2 < right.length) {
-      if (left[index1] <= right[index2]) {
-          result.push(left[index1])
-          index1++
-        }else {
-          result.push(right[index2])
-          index2++
-        }
+    if (left[index1] <= right[index2]) {
+      result.push(left[index1])
+      index1++
+    } else {
+      result.push(right[index2])
+      index2++
     }
+  }
 
   while (index2 < right.length) {
-       result.push(right[index2])
-       index2++
-     }
+    result.push(right[index2])
+    index2++
+  }
 
-   while (index1 < left.length) {
-       result.push(left[index1])
-       index1++
-     }
+  while (index1 < left.length) {
+    result.push(left[index1])
+    index1++
+  }
 
-   
-    
-    return result;
-    // return result;
+
+
+  return result;
+  // return result;
 }
 
-console.log(mergeSort([6,3,7,567,2,6,4,2]));
+console.log(mergeSort([6, 3, 7, 567, 2, 6, 4, 2]));
 
 
 
@@ -77,7 +77,7 @@ function mergeSort (arr) {
   var midIndex = Math.floor(arr.length / 2),
       left = arr.slice(0, midIndex),
       right = arr.slice(midIndex, arr.length);
-  
+
   mergeSort(left)
   mergeSort(right)
 
