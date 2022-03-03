@@ -90,3 +90,8 @@ const res1 = findSubStr(String1, Pattern1)
 
 console.log('res1 ', res1)
 
+const Input1 = "abdbca"
+const Pattern2 = "abc"
+const res2 = findSubStr(Input1, Pattern2) // Output: "bca"
+
+console.log('res2 ', res2)
