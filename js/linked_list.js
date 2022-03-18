@@ -169,6 +169,6 @@ testCase.insert(2, 3)//insert at given index
 testCase.remove(0);
 testCase.remove(2);
 
-console.log(testCase)
+console.log('testCase', testCase)
 testCase.printForward()
-testCase.printBackward()
+// testCase.printBackward()
