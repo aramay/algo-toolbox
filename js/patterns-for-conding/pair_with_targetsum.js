@@ -21,27 +21,27 @@ const pairWithTargetSum = (arr, targetSum) => {
 
   let p1 = 0
   let p2 = arr.length - 1
-  const result = []
 
-  let searchComplete = true
+  while (p1 < p2) {
 
-  while (searchComplete) {
     let sum = arr[p1] + arr[p2]
+
+    if (sum === targetSum) {
+      return [p1, p2]
+    }
 
     if (sum > targetSum) {
       p2 -= 1
     } else if (sum < targetSum) {
       p1 += 1
-    } else if (sum === targetSum) {
-      result.push(p1, p2)
-      searchComplete = false
-    }
+    } 
   }
-  return result
+  // no result found
+  return [-1,-1]
 }
 
 let input1 = [1, 2, 3, 4, 6]
-let target1 = 6
+let target1 = 12
 // Output: [1, 3]
 // Explanation: The numbers at index 1 and 3 add up to 6: 2+4=6
 
