@@ -18,6 +18,26 @@ Explanation: The numbers at index 0 and 2 add up to 11: 2+9=11
 
 const pairWithTargetSum = (arr, targetSum) => {
   console.log('func called')
+
+  let p1 = 0
+  let p2 = arr.length - 1
+  const result = []
+
+  let searchComplete = true
+
+  while (searchComplete) {
+    let sum = arr[p1] + arr[p2]
+
+    if (sum > targetSum) {
+      p2 -= 1
+    } else if (sum < targetSum) {
+      p1 += 1
+    } else if (sum === targetSum) {
+      result.push(p1, p2)
+      searchComplete = false
+    }
+  }
+  return result
 }
 
 let input1 = [1, 2, 3, 4, 6]
