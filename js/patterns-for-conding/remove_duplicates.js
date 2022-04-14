@@ -18,9 +18,27 @@ Explanation: The first two elements after removing the duplicates will be [2, 11
 
 const removeDuplicates = (arr) => {
   console.log('func called');
+  let p1 = 0
+  let p2 = p1 + 1
+
+  let searchComplete = true
+
+  while (searchComplete) {
+
+    if (p2 === arr.length) searchComplete = false
+
+    if (arr[p1] === arr[p2]) {
+      arr.splice(p2, 1)
+      // p2 += 1
+    } else {
+      p1 += 1
+      p2 = p1 + 1
+    }
+  }
+  return arr
 }
 
-let Input1 = [2, 3, 3, 3, 6, 9, 9]
+let Input1 = [2, 2, 2, 11]
 // Output: 4
 // Explanation: The first four elements after removing the duplicates will be [2, 3, 6, 9].
 
