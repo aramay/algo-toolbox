@@ -16,6 +16,7 @@ Output: 2
 Explanation: The first two elements after removing the duplicates will be [2, 11].
  */
 
+/*
 const removeDuplicates = (arr) => {
   console.log('func called');
   let p1 = 0
@@ -38,8 +39,32 @@ const removeDuplicates = (arr) => {
   return arr
 }
 
-let Input1 = [2, 2, 2, 11]
+let Input1 = [2, 3, 3, 3, 6, 9, 9]
 // Output: 4
 // Explanation: The first four elements after removing the duplicates will be [2, 3, 6, 9].
 
 console.log(removeDuplicates(Input1));
+*/
+
+
+const removeDuplicates2 = (arr) => {
+  console.log('func called');
+  let nextNonDuplicate = 1
+  let i = 0
+
+  while (i < arr.length) {
+    if (arr[nextNonDuplicate - 1] !== arr[i]) {
+      arr[nextNonDuplicate] = arr[i]
+      nextNonDuplicate += 1
+    }
+    i += 1
+  }
+  console.log('arr', arr)
+  return nextNonDuplicate
+}
+
+let Input1 = [2, 3, 3, 3, 6, 9, 9]
+// Output: 4
+// Explanation: The first four elements after removing the duplicates will be [2, 3, 6, 9].
+
+console.log(removeDuplicates2(Input1));
