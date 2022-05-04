@@ -118,7 +118,7 @@ BinarySearchTree.prototype.insert = function(value) {
 
   // Time Complexity: 
   // Auxiliary Space Complexity: 
-BinarySearchTree.prototype.breadthFirstSearch = function(value) {
+BinarySearchTree.prototype.breadthFirstSearch = function (value) {
 
     //Breadth First Search
     if(this.rootNode === null) { return false }
@@ -196,6 +196,43 @@ BinarySearchTree.prototype.breadthFirstSearch = function(value) {
     // return results
 };
 
+
+// 2nd attempt
+BinarySearchTree.prototype.breathFirstSearch = function(value) {
+  // console.log('breathFirstSearch 2nd function')
+
+  let queue = []
+  let currentNode = null
+
+  if (this.rootNode === null) return false
+  if (this.rootNode.value === value) return true
+
+  queue.push(this.rootNode)
+
+  while (queue.length) {
+    currentNode = queue.shift()
+
+    // lookup left child
+    if (currentNode.leftChild !== null) {
+      if (currentNode.leftChild.value === value) {
+        return true
+      } else {
+        queue.push(currentNode.leftChild)
+      }
+    } // end lookup left child
+
+    // right child lookup
+    if (currentNode.rightChild !== null) {
+      if (currentNode.rightChild.value === value) {
+        return true
+      } else {
+        queue.push(currentNode.rightChild)
+      }
+    } // end right child lookup
+  }
+  return false
+}
+
 BinarySearchTree.prototype.depthFirstSearch = function(value){
 
   //pre-order depth first search
@@ -217,16 +254,19 @@ BinarySearchTree.prototype.depthFirstSearch = function(value){
 
 
 var bt = new BinarySearchTree();
-
-bt.insert(12);
+// 10, 5, 1, 7, 40, 50
+bt.insert(10);
 console.log(bt);
-bt.insert(27);
+bt.insert(5);
 // debugger;
-bt.insert(15);
-bt.insert(9);
+bt.insert(1);
+bt.insert(7);
+bt.insert(40);
+bt.insert(50);
 console.log(bt);
 
 console.log("breadthFirstSearch", bt.breadthFirstSearch(15))
+console.log("breathFirstSearch 2nd function", bt.breathFirstSearch(50))
 // console.log("depthFirstSearch", bt.depthFirstSearch(15) === 15)
 
 
