@@ -1,0 +1,10 @@
+{
+  "name": "js_ts",
+  "version": "1.0.0",
+  "description": "ts_algo_toolbox",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

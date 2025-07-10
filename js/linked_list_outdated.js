@@ -3,13 +3,13 @@ function Node(value){
     this.next = null
 }
 
-function LinkedList(){
+function LinkedList1(){
     this.length = 0;
     this.head = null;
     this.tail = null;
 }
 
-LinkedList.prototype.append = function (value) {
+LinkedList1.prototype.append = function (value) {
     
 // debugger;
     var node = this.head // set Node to head
@@ -38,7 +38,7 @@ LinkedList.prototype.append = function (value) {
 //     }
 // }
 
-LinkedList.prototype.insert = function (value, index){
+LinkedList1.prototype.insert = function (value, index){
 
     var length = this.length,
         currentNode = this.head,
@@ -82,7 +82,7 @@ LinkedList.prototype.insert = function (value, index){
 
 }
 
-LinkedList.prototype.remove = function(index){
+LinkedList1.prototype.remove = function(index){
 
     var length = this.length,
         currentNode = this.head,
@@ -125,7 +125,7 @@ LinkedList.prototype.remove = function(index){
 
 }
 
-LinkedList.prototype.printForward = function(){
+LinkedList1.prototype.printForward = function(){
 
     function printHelper(currentNode){
 
@@ -140,12 +140,12 @@ LinkedList.prototype.printForward = function(){
 
 }
 
-LinkedList.prototype.printBackward = function(){
+LinkedList1.prototype.printBackward = function(){
   reverse(this.head);
 }
 
 function reverse(node) {
-    var temp = new LinkedList()
+    var temp = new LinkedList1()
   if(node === null) {
     return;
   }
@@ -155,7 +155,7 @@ function reverse(node) {
 }
 
 
-var testCase = new LinkedList();
+var testCase = new LinkedList1();
 testCase.append(10);
 testCase.append(30);
 testCase.append(20);
