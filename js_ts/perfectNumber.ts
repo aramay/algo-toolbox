@@ -10,6 +10,7 @@ function sum_optimized(num){
     for (let i = 2; i * i <= num; i++) { // Loop goes up to 5 (since 5*5=25 <= 28, but 6*6=36 > 28)
     if (num % i === 0) {
         sum_optimized += i;
+        // 2nd if nested inside 1st if
         if (i !== num / i) {
             sum_optimized += num / i;
 
