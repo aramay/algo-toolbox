@@ -1,13 +1,17 @@
-function getSecondMostCharFreq(str: string) {
+function getSecondMostCharFreq(str) {
     console.log(str)
-    const charCounts = new Map<string, number>()
+    const charCounts = new Map()
 
     for (const char of str){
-        if (charCounts.get(char) === undefined) {
+        if (!charCounts.has(char)) {
             charCounts.set(char, 1)
         }
-        charCounts.set(char, charCounts.get(char) + 1)
-        // charCounts.set(char, charCounts.get(char) || 0) + 1)
+        
+        else if (charCounts.has(char)){
+            charCounts.set(char, charCounts.get(char) + 1)
+        }
+        // charCounts.set(char, charCounts.get(char) + 1)
+        // charCounts.set(char, (charCounts.get(char) || 0) + 1)
     }
     console.log("charCounts ", charCounts)
     // 2. Convert to array and sort
