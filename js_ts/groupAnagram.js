@@ -1,6 +1,7 @@
 /**
  * link: https://neetcode.io/problems/anagram-groups?list=neetcode150
  * YT: https://www.youtube.com/watch?v=vzdNOK2oB2E
+ * leetcode: https://leetcode.com/problems/group-anagrams/
  * Group Anagrams
 Given an array of strings strs, group all anagrams together into sublists. You may return the output in any order.
 
@@ -56,6 +57,7 @@ const solutionGroupAnagram = (strs) => {
 
     }
     console.log("anagramsDict ", anagramsDict)
+    return Array.from(anagramsDict.values())
 }
 
 /*
