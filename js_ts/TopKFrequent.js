@@ -1,6 +1,6 @@
 /**
  * Link: https://neetcode.io/problems/top-k-elements-in-list?list=neetcode150
- * 
+ * TY: https://www.youtube.com/watch?v=YPTqKIgVk-k
  * Top K Frequent Elements
 Given an integer array nums and an integer k, return the k most frequent elements within the array.
 
@@ -25,6 +25,51 @@ Constraints:
 1 <= k <= number of distinct elements in nums.
 
  */
+const topKFrequentBucketSort = (nums, k) => {
+    console.log("num ", nums)
+    const result = []
+    let buckets = []
+    // 1. count the frequency of each element
+    const frequencyMap = new Map()
+    for (const num of nums) {
+        frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1)
+    }
+    // 2. create bucket where index is the fequency of num
+    // value at index is the item
+    // The maximum possible frequency is nums.length
+    buckets = Array.from({length: nums.length + 1}, () => [])
+console.log("buckets ", buckets)
+    for (const [ele, frequency] of frequencyMap.entries()) {
+        buckets[frequency].push(ele)
+    }
+    console.log("buckets ", buckets)
+    // 3. Iterate from the highest frequency bucket downwards
+    
+    for (let i = buckets.length -1; i >= 0 && result.length < k; i--) {
+        if(buckets[i].length > 0) {
+            // add all elements from this bucket to the result
+            for (const element of buckets[i]) {
+                result.push(element) 
+                    if (result.length === k) {
+                        break;
+                    }
+            }
+        }
+    }
+    return result
+}
+
+// Example Usage:
+console.log("\n--- Hash Map + Bucket Sort ---");
+// Expected: [1,2] (order might vary for same freq)
+console.log(`nums = [1,1,1,2,2,3,3], k = 2 -> ${topKFrequentBucketSort([1,1,1,2,2,3,3], 2)}`);
+// Expected: [1]
+// console.log(`nums = [1], k = 1 -> ${topKFrequentBucketSort([1], 1)}`);
+// // Expected: [0]
+// console.log(`nums = [3,0,1,0], k = 1 -> ${topKFrequentBucketSort([3,0,1,0], 1)}`);
+// // Expected: [-1,2] (or [2,-1])
+// console.log(`nums = [4,1,-1,2,-1,2,3], k = 2 -> ${topKFrequentBucketSort([4,1,-1,2,-1,2,3], 2)}`);
+
 const topKFrequent = (nums, k) => {
     console.log(nums, k)
     const kFreq = new Map();
@@ -45,6 +90,6 @@ Input: nums = [1,2,2,3,3,3], k = 2
 
 Output: [2,3]
  */
-let nums = [1,2,2,3,3,3], k = 2
-const testcase1 = topKFrequent(nums, k)
-console.log("testcase1 ", testcase1)
+// let nums = [1,2,2,3,3,3], k = 2
+// const testcase1 = topKFrequent(nums, k)
+// console.log("testcase1 ", testcase1)
