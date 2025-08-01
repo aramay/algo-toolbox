@@ -1,6 +1,7 @@
 /**
  * Neetcode: https://neetcode.io/problems/products-of-array-discluding-self?list=neetcode150
  * Products of Array Except Self
+ * YT: https://www.youtube.com/watch?v=bNvIQI2wAjk
 Given an integer array nums, return an array output where output[i] is the product of all the elements of nums except nums[i].
 
 Each product is guaranteed to fit in a 32-bit integer.
@@ -27,3 +28,33 @@ Constraints:
 2 <= nums.length <= 1000
 -20 <= nums[i] <= 20
  */
+
+const productExceptSelf = (nums) => {
+    console.log("nums ", nums)
+    
+    let prefix = 1, postfix = 1
+
+    let result = Array.from({length: nums.length}, () => 1)
+    console.log("result " , result)
+
+    for (let i = 0; i < nums.length; i++) {
+        result[i] = prefix
+        prefix *= nums[i]
+    }
+
+    console.log("result ", result)
+    for (let i = nums.length - 1; i >= 0; i--) {
+        result[i] *= postfix 
+        postfix *= nums[i]
+    }
+    return result
+}
+
+let nums = [1,2,4,6]
+
+// Output: [48,24,12,8]
+// [0] - 6*4*2*1 = 48
+// [1] - 6*4 = 24 - 48
+// [2] - 
+const testcase1 = productExceptSelf(nums)
+console.log("testcase1 ", testcase1)
