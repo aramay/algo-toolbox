@@ -1,6 +1,7 @@
 /**
  * Neetcode: https://neetcode.io/problems/longest-consecutive-sequence?list=neetcode150
  * YT: https://www.youtube.com/watch?v=P6RZZMu_maU
+ * leetcode: https://leetcode.com/problems/longest-consecutive-sequence/description/
  * Longest Consecutive Sequence
 Given an array of integers nums, return the length of the longest consecutive sequence of elements that can be formed.
 
@@ -33,12 +34,13 @@ const longestConsecutive = (nums) => {
     let longest = 0
     let length = 0
 
-    for ( let i = 0; i < nums.length; i++) {
+    for ( let num of numSet) {
+        console.log(num)
         // check if it is not a start of the sequence
-        if (!numSet.has(i - 1)) {
-            length = 0
+        if (!numSet.has(num - 1)) {
+            length = 1
 
-            while (numSet.has(i + length)) {
+            while (numSet.has(num + length)) {
                 length += 1
             }
             longest = Math.max(length, longest)
