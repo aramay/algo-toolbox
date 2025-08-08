@@ -64,3 +64,16 @@ let s2 = "Was it a car or a cat I saw?"
 // Output: true
 
 console.log(isPalindrome(s2))
+
+
+/**
+ * LEETCODE SOLUTION
+ */
+
+var isPalindrome1 = function (s) {
+    s = s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    for (let i = 0; i < s.length / 2; i++) {
+        if (s[i] !== s[s.length - 1 - i]) return false;
+    }
+    return true;
+};
