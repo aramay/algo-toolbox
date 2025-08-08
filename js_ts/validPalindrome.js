@@ -1,4 +1,6 @@
 /**
+ * leetcode: 
+ * YT: https://youtu.be/jJXJ16kPFWg
  * Neetcode: https://neetcode.io/problems/is-palindrome?list=neetcode150
  * Valid Palindrome
 Given a string s, return true if it is a palindrome, otherwise return false.
@@ -26,3 +28,39 @@ Constraints:
 1 <= s.length <= 1000
 s is made up of only printable ASCII characters.
  */
+
+const isPalindrome = (str) => {
+
+    let leftIndex = 0
+    let caseInsensitiveStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase()
+
+    let rightIndex = caseInsensitiveStr.length - 1
+
+
+    while (leftIndex <= rightIndex) {
+        if (caseInsensitiveStr[leftIndex] === caseInsensitiveStr[rightIndex]) {
+
+            // increment index left to right 
+            // right to left
+            leftIndex += 1
+            rightIndex -= 1
+        }
+        else {
+            // console.log('true')
+            return false
+        }
+    }
+    return true
+}
+
+let s1 = "tab a cat"
+
+// Output: false
+
+// console.log("isPalindrome 1", isPalindrome(s1))
+
+let s2 = "Was it a car or a cat I saw?"
+
+// Output: true
+
+console.log(isPalindrome(s2))
