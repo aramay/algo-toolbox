@@ -1,5 +1,5 @@
 /**
- * leetcode: 
+ * leetcode: https://leetcode.com/problems/valid-palindrome/
  * YT: https://youtu.be/jJXJ16kPFWg
  * Neetcode: https://neetcode.io/problems/is-palindrome?list=neetcode150
  * Valid Palindrome
